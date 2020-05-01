@@ -20,6 +20,7 @@
                 <VideoItem v-for="movie in movieList" :key="movie.cover" :item="movie"></VideoItem>
             </div>
         </div>
+        <button type='button' @click="test()">Test</button>
     </div>
     
 </template>
@@ -37,6 +38,9 @@ export default {
     ControlBar
   },
   methods: {
+    test: function(){
+      this.$store.dispatch('video/openFullScreen');
+    }
   },
   computed: {
     currentMovie() {

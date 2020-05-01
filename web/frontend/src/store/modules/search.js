@@ -69,8 +69,9 @@ const actions= {
       commit('changeMessage', msg);
     }
   },
-  executeInstruction({ commit, dispatch, state }) {
+  executeInstruction({ commit, dispatch, state, rootState }) {
     switch(state.currentInstruction) {
+      //Video Controller
       case 'ปรับ คุณภาพ วิดีโอ ระดับ ต่ำ':
         dispatch('video/setResolution', 360, {root:true});
         break;
@@ -80,6 +81,80 @@ const actions= {
       case 'ปรับ คุณภาพ วิดีโอ ระดับ สูง':
         dispatch('video/setResolution', 1080, {root:true});
         break;
+      case 'พอส วีดีโอ':
+        dispatch('video/pause', null, {root:true});
+        break;
+      case 'เล่น วีดีโอ':
+        dispatch('video/play', null, {root:true});
+        break;
+      case 'หยุด วีดีโอ':
+        dispatch('video/pause', null, {root:true});
+        break;
+      case 'ขยาย หน้าจอ':
+        dispatch('video/openFullScreen', null, {root:true});
+        break;
+      case 'ย่อ หน้าจอ':
+        dispatch('video/closeFullScreen', null, {root:true});
+        break;
+      case 'เปิด ลูป':
+        dispatch('video/setLoop', true, {root:true});
+        break;
+      case 'ปิด ลูป':
+        dispatch('video/setLoop', false, {root:true});
+        break;
+      // case 'เล่น ตอน ต่อไป':
+      //   dispatch('video/openFullScreen', null, {root:true});
+      //   break;
+      // case 'เล่น ตอน ที่แล้ว':
+      //   dispatch('video/closeFullScreen', null, {root:true});
+      //   break;
+      case 'เซ็ต ความเร็ว วีดีโอ หนึ่ง จุด สอง ห้า เท่า':
+        dispatch('video/setSpeed', 1.25, {root:true});
+        break;
+      case 'เซ็ต ความเร็ว วีดีโอ หนึ่ง จุด ห้า เท่า':
+        dispatch('video/setSpeed', 1.5, {root:true});
+        break;
+      case 'เซ็ต ความเร็ว วีดีโอ สอง เท่า':
+        dispatch('video/setSpeed', 2, {root:true});
+        break;
+      case 'เซ็ต ความเร็ว วีดีโอ ศูนย์ จุด เจ็ด ห้า เท่า':
+        dispatch('video/setSpeed', 0.75, {root:true});
+        break;
+      case 'เซ็ต ความเร็ว วีดีโอ ศูนย์ จุด ห้า เท่า':
+        dispatch('video/setSpeed', 0.5, {root:true});
+        break;
+      case 'เพิ่ม ความเร็ว วีดีโอ สอง เท่า':
+        dispatch('video/setSpeed', rootState.video.currentSpeed * 2, {root:true});
+        break;
+      case 'เพิ่ม ความเร็ว วีดีโอ ศูนย์ จุด หนึ่ง':
+        dispatch('video/setSpeed', rootState.video.currentSpeed + 0.1, {root:true});
+        break;
+      case 'เพิ่ม ความเร็ว วีดีโอ ศูนย์ จุด สอง ห้า':
+        dispatch('video/setSpeed', rootState.video.currentSpeed + 0.25, {root:true});
+        break;
+      case 'เพิ่ม ความเร็ว วีดีโอ ศูนย์ จุด ห้า':
+        dispatch('video/setSpeed', rootState.video.currentSpeed + 0.5, {root:true});
+        break;
+      case 'เพิ่ม ความเร็ว วีดีโอ หนึ่ง':
+        dispatch('video/setSpeed', rootState.video.currentSpeed + 1, {root:true});
+        break;
+      case 'ลด ความเร็ว วีดีโอ สอง เท่า':
+        dispatch('video/setSpeed', rootState.video.currentSpeed / 2, {root:true});
+        break;
+      case 'ลด ความเร็ว วีดีโอ ศูนย์ จุด หนึ่ง':
+        dispatch('video/setSpeed', rootState.video.currentSpeed - 0.1, {root:true});
+        break;
+      case 'ลด ความเร็ว วีดีโอ ศูนย์ จุด สอง ห้า':
+        dispatch('video/setSpeed', rootState.video.currentSpeed - 0.25, {root:true});
+        break;
+      case 'ลด ความเร็ว วีดีโอ ศูนย์ จุด ห้า':
+        dispatch('video/setSpeed', rootState.video.currentSpeed - 0.5, {root:true});
+        break;
+      case 'ลด ความเร็ว วีดีโอ หนึ่ง':
+        dispatch('video/setSpeed', rootState.video.currentSpeed - 1, {root:true});
+        break;
+
+      
       case 'ล็อกอิน นาม บี':
         dispatch('auth/login', "บี", {root:true});
         break
