@@ -51,9 +51,6 @@ export default {
     },
     videoNums(){
         return this.$store.state.video.videoNums;
-    },
-    bg(){
-        return '../assets/bg3.jpg';
     }
   }
 }
