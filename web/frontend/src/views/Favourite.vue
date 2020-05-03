@@ -1,7 +1,7 @@
 <template>
  <v-timeline align-top dense class="align-fav">
     <v-timeline-item
-      v-for="movie in movieList"
+      v-for="movie in favouriteList[who]"
       :key="movie.id"
       color="red"
       icon="mdi-star"
@@ -18,7 +18,6 @@
   </v-timeline> 
 </template>
 <script>
-import { mapGetters } from 'vuex'
 
 import VideoItem from '../components/VideoItem'
 export default {
@@ -27,8 +26,11 @@ export default {
       VideoItem
   },
   computed: {
-     movieList() {
-       return this.$store.getters.auth.movieList
+    who() {
+      return this.$store.state.auth.who
+    },
+     favouriteList() {
+       return this.$store.state.auth.favouriteList
      }
   },
   mounted() {

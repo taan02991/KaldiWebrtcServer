@@ -7,17 +7,20 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <router-link class="nav-link" to="/">Home</router-link>
+      <li class="nav-item active"  @click ='setMode'>
+        <router-link class="nav-link" to="/" >Home</router-link>
       </li>
       <li class="nav-item">
         <router-link class="nav-link" to="/default-recorder">Default Recorder</router-link>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if="isLogin"  @click ='setMode'>
         <router-link class="nav-link" to="/Favourite">Favourite</router-link>
       </li>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/searchPage">SearchPage</router-link>
+      <li class="nav-item" @click ='setMode'>
+        <router-link class="nav-link" to="/searchPage" >SearchPage</router-link>
+      </li>
+      <li class="nav-item" data-toggle="modal" data-target="#exampleModalLong">
+        <a class="nav-link" href="#">Mode</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -54,9 +57,11 @@ return {
   methods : {
     searchPage(){
       // this.$router.push('/searchPage');
+      this.$store.dispatch('page/changeMode', null,{root:true});
       this.$store.dispatch('page/changePage',"/searchPage");
-      
-      //this.$router.replace('/searchPage');
+    },
+    setMode(){
+      this.$store.dispatch('page/changeMode', null,{root:true});
     },
     process() {
       (this.isLogin) ? this.logout() : this.login()

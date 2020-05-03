@@ -4,7 +4,6 @@
 <script>
 /* eslint-disable no-unused-vars */
 import SiriWave from 'siriwave';
-// let wave;
 export default {
     name : "siriWave",
     mounted() {

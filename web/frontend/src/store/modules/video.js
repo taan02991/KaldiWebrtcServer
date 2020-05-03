@@ -115,6 +115,18 @@ const mutations =  {
         console.log('Set volumer ' + n);
         state.player.volume = n;
       }
+    },
+    changeMode(state, mode){
+      if(mode ==null){
+        state.movieList = DATA;
+        state.videoNums = DATA.length;
+      }
+      else{
+        state.movieList = DATA.filter((data)=>{
+           return mode === data.mode})
+        state.videoNums = state.movieList.length;
+        console.log(state.movieList);
+      }
     }
 
 }
@@ -157,6 +169,9 @@ const actions = {
     },
     setVolume(context, n) {
       context.commit('setVolume', n);
+    },
+    changeMode(context, mode){
+      context.commit('changeMode', mode);
     }
     
 }

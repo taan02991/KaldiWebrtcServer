@@ -5,7 +5,7 @@
     <div class="row">
         <div class="container">
             <div class="text">
-             <h2>SearchPage</h2>
+             <h2>{{mode}}</h2>
             </div>
         </div>
     </div>
@@ -51,6 +51,12 @@ export default {
     },
     videoNums(){
         return this.$store.state.video.videoNums;
+    },
+    mode(){
+        let mode = this.$store.state.page.Mode;
+        console.log(mode);
+        if(mode == null) return "SearchPage";
+        else return "Mode"+mode;
     }
   }
 }
@@ -120,4 +126,3 @@ export default {
     background-image: url("../assets/bgblue.png");
   }
 </style>
-// cd ../assets/bg3.jpg

@@ -116,8 +116,8 @@ export default {
 
             // resetCount stop show overlay
             if(this.countTranscribe > 8) {
-                this.$store.dispatch('transcribe/resetCount')
                 this.stop()
+                this.$store.dispatch('transcribe/resetCount')
             }
             if (msg.endsWith('\n')) {
                 this.lastTrans = this.imcompleteTrans + msg.substring(0, msg.length - 1);

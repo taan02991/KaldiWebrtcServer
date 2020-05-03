@@ -1,0 +1,14 @@
+name: Docker Image CI
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  clone:
+    runs-on: ubuntu-latest
+    steps:
+     - uses: actions/checkout@v2
+     - run: git clone https://github.com/beesk135/asr_model.git model
+     - run: docker-compose up --build
