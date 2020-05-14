@@ -74,8 +74,7 @@ const actions= {
     }
   },
   executeInstruction({ commit, dispatch, state, rootState }) {
-    // switch(state.currentInstruction) {
-      switch('เพิ่ม เสียง') {
+    switch(state.currentInstruction) {
       //Video Controller
       case 'พอส วีดีโอ':
         dispatch('video/pause', null, {root:true});
