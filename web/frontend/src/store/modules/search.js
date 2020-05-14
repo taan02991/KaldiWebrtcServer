@@ -184,13 +184,13 @@ const actions= {
       case 'เล่น วีดีโอ ที่ เวลา ศูนย์ นาที':
         dispatch('video/setCurrentTime', 0, {root:true});
         break;
-      case 'เล่น วีดิโอ ที่ กลาง ตอน':
+      case 'เล่น วีดีโอ ที่ กลาง ตอน':
         dispatch('video/setCurrentTime', rootState.video.player.duration / 2, {root:true});
         break;
-      case 'เล่น วีดิโอ ที่ หนึ่ง ใน สี่ ของ ตอน':
+      case 'เล่น วีดีโอ ที่ หนึ่ง ใน สี่ ของ ตอน':
         dispatch('video/setCurrentTime', rootState.video.player.duration / 4, {root:true});
         break;
-      case 'เล่น วีดิโอ ที่ สาม ใน สี่ ของ ตอน':
+      case 'เล่น วีดีโอ ที่ สาม ใน สี่ ของ ตอน':
         dispatch('video/setCurrentTime', rootState.video.player.duration / 4 * 3, {root:true});
         break;
       case 'ปิด เสียง':
@@ -217,13 +217,13 @@ const actions= {
       case 'ลด เสียง':
         dispatch('video/setVolume', rootState.video.player.volume - 0.10, {root:true});
         break;
-      case 'ปรับ คุณภาพ วิดีโอ ระดับ ต่ำ':
+      case 'ปรับ คุณภาพ วีดีโอ ระดับ ต่ำ':
         dispatch('video/setResolution', 360, {root:true});
         break;
-      case  'ปรับ คุณภาพ วิดีโอ ระดับ กลาง':
+      case  'ปรับ คุณภาพ วีดีโอ ระดับ กลาง':
         dispatch('video/setResolution', 720, {root:true});
         break;
-      case 'ปรับ คุณภาพ วิดีโอ ระดับ สูง':
+      case 'ปรับ คุณภาพ วีดีโอ ระดับ สูง':
         dispatch('video/setResolution', 1080, {root:true});
         break;
   
@@ -254,27 +254,27 @@ const actions= {
       case 'ปิด โปรแกรม' :
         window.close()
         break
-      case 'เลือก วิดีโอ หมายเลข หนึ่ง' :
+      case 'เลือก วีดีโอ หมายเลข หนึ่ง' :
         dispatch('page/changePage', "/",{root:true});
         dispatch('video/changeMovie',"1",{root:true});
         window.scrollTo(0, 0);
         break
-      case 'เลือก วิดีโอ หมายเลข สอง' :
+      case 'เลือก วีดีโอ หมายเลข สอง' :
         dispatch('page/changePage', "/",{root:true});
         dispatch('video/changeMovie',"2",{root:true});
         window.scrollTo(0, 0);
         break
-      case 'เลือก วิดีโอ หมายเลข สาม' :
+      case 'เลือก วีดีโอ หมายเลข สาม' :
         dispatch('page/changePage', "/",{root:true});
         dispatch('video/changeMovie',"3",{root:true});
         window.scrollTo(0, 0);
         break
-      case 'เลือก วิดีโอ หมายเลข สี่' :
+      case 'เลือก วีดีโอ หมายเลข สี่' :
         dispatch('page/changePage', "/",{root:true});  
         dispatch('video/changeMovie',"4",{root:true});
         window.scrollTo(0, 0);
         break
-      case 'เลือก วิดีโอ หมายเลข ห้า' :
+      case 'เลือก วีดีโอ หมายเลข ห้า' :
         dispatch('page/changePage', "/",{root:true});
         dispatch('video/changeMovie',"5",{root:true});
         window.scrollTo(0, 0);
