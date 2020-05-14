@@ -1,7 +1,7 @@
-const INSTRUCTIONS = ['โกวาจี', 'โกวาจี ฉัน แตงไทย', 'โกวาจี ผม บี', 'โกวาจี ผม ตาล',
+let INSTRUCTIONS = ['โกวาจี', 'โกวาจี ฉัน แตงไทย', 'โกวาจี ผม บี', 'โกวาจี ผม ตาล',
 'โกวาจี ผม ฟร้องซ์', 'ล็อกอิน ผ่าน การ จำ เสียง', 'ล็อกอิน นาม บี',
 'ล็อกอิน นาม ตาล', 'ล็อกอิน นาม แตงไทย', 'ล็อกอิน นาม ฟร้องซ์',
-'ล็อกเอาท์', 'เข้า หน้า โฮมเพจ', 'เข้า หน้า ค้นหา',
+'ล็อกเอาท์', 'เข้า หน้า โฮมเพจ', 'เข้า หน้า ค้นหา', 'เข้า หน้า รายการ โปรด', 'เปิด หน้า รายการ โปรด', 'แสดง หน้า รายการ โปรด',
 'แสดง โหมด ค้นหา', 'เปิด โหมด หมายเลข หนึ่ง',
 'เปิด โหมด หมายเลข สอง', 'เปิด โหมด หมายเลข สาม',
 'เปิด โหมด หมายเลข สี่', 'เปิด โหมด หมายเลข ห้า',
@@ -41,11 +41,38 @@ const INSTRUCTIONS = ['โกวาจี', 'โกวาจี ฉัน แต
 'ตั้งค่า เสียง เจ็ด สิบ ห้า เปอร์เซนต์',
 'ตั้งค่า เสียง ร้อย เปอร์เซนต์', 'เพิ่ม เสียง', 'ลด เสียง',
 'ปรับ คุณภาพ วิดีโอ ระดับ ต่ำ', 'ปรับ คุณภาพ วิดีโอ ระดับ กลาง',
-'ปรับ คุณภาพ วิดีโอ ระดับ สูง', 'ตั้ง เป็น รายการ โปรด',
+'ปรับ คุณภาพ วิดีโอ ระดับ สูง', 'ตั้ง เป็น รายการ โปรด','ตั้งค่า เป็น รายการ โปรด', 'ตั้ง วิดีโอ เป็น รายการ โปรด','ตั้งค่า วิดีโอ เป็น รายการ โปรด',
 'เอา ออก จาก รายการ โปรด', 'ตั้ง เป็น วิดีโอ ทอป วัน',
 'ตั้ง เป็น วิดีโอ ทอป ทู', 'ตั้ง เป็น วิดีโอ ทอป ทรี',
 'แนะนำ หนัง หน่อย สิ โกวาจี', 'ขอ ชื่อ ผู้ อัพโหลด วีดีโอ',
 'วิดีโอ ความยาว เท่าไหร่', 'ขอ ความยาว วิดีโอ', 'วิดีโอ ชื่อ อะไร',
 'ขอ ชื่อ วิดีโอ']
-
+let addedInstruction = []
+const variousVideo = ['วิดีโอ','วีดีโอ','วีดิโอ']
+INSTRUCTIONS.forEach((instruction)=> {
+    if(instruction.includes(variousVideo[0]) && !addedInstruction.includes(instruction)) {
+        const int1 = instruction.replace(variousVideo[0],variousVideo[1])
+        const int2 = instruction.replace(variousVideo[0],variousVideo[2])
+        INSTRUCTIONS.push(int1)
+        INSTRUCTIONS.push(int2)
+        addedInstruction.push(int1)
+        addedInstruction.push(int2)
+    } else if(instruction.includes(variousVideo[1]) && !addedInstruction.includes(instruction)) {
+        const int1 = instruction.replace(variousVideo[1],variousVideo[0])
+        const int2 = instruction.replace(variousVideo[1],variousVideo[2])
+        INSTRUCTIONS.push(int1)
+        INSTRUCTIONS.push(int2)
+        addedInstruction.push(int1)
+        addedInstruction.push(int2)
+    } else if(instruction.includes(variousVideo[2]) && !addedInstruction.includes(instruction)) {
+        const int1 = instruction.replace(variousVideo[2],variousVideo[0])
+        const int2 = instruction.replace(variousVideo[2],variousVideo[1])
+        INSTRUCTIONS.push(int1)
+        INSTRUCTIONS.push(int2)
+        addedInstruction.push(int1)
+        addedInstruction.push(int2)
+    }
+})
+INSTRUCTIONS.sort()
+console.log(INSTRUCTIONS)
 export default INSTRUCTIONS;

@@ -10,6 +10,7 @@ const state =  {
 }
 import {Howl, Howler} from 'howler';
 // var siriSound = new Audio('../../public/siri_soundeffect.mp3')
+const variousVideo = ['วิดีโอ','วีดีโอ','วีดิโอ']
 const mutations = {
     changeTranscribeState(state, status){
       if(status == "start") {
@@ -46,6 +47,8 @@ const mutations = {
           }
         }
       }
+      state.currentInstruction = state.currentInstruction.replace(variousVideo[0],variousVideo[1])
+      state.currentInstruction = state.currentInstruction.replace(variousVideo[2],variousVideo[1])
     }
 }
 const actions= {
@@ -244,17 +247,28 @@ const actions= {
       case 'ล็อกเอาท์':
         dispatch('auth/logout',null, {root:true});
         break
+      case 'เข้า หน้า รายการ โปรด':
+      case 'เปิด หน้า รายการ โปรด':
+      case 'แสดง หน้า รายการ โปรด':
+        dispatch('page/changePage',"/Favourite",{root : true})
+        break
       case 'ตั้ง เป็น รายการ โปรด':
+      case 'ตั้งค่า เป็น รายการ โปรด':
+      case 'ตั้ง วิดีโอ เป็น รายการ โปรด':
+      case 'ตั้งค่า วิดีโอ เป็น รายการ โปรด':
         dispatch('auth/addFavorite', null, {root:true});
         break
       case 'เอา ออก จาก รายการ โปรด':
         dispatch('auth/removeFavorite',null, {root:true});
         break
         // TO-FIX BUG
-      case 'ปิด โปรแกรม' :
-        window.close()
-        break
-      case 'เลือก วีดีโอ หมายเลข หนึ่ง' :
+      // case 'เปิด โปรแกรม' :
+      //     window.open()
+      //     break
+      // case 'ปิด โปรแกรม' :
+      //   window.close()
+      //   break
+      case 'เลือก วิดีโอ หมายเลข หนึ่ง' :
         dispatch('page/changePage', "/",{root:true});
         dispatch('video/changeMovie',"1",{root:true});
         window.scrollTo(0, 0);

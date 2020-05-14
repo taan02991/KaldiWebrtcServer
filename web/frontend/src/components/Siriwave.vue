@@ -1,5 +1,6 @@
 <template>
-    <div id="siri-container"> </div>
+    <div id="siri-container">
+    </div>
 </template>
 <script>
 /* eslint-disable no-unused-vars */
