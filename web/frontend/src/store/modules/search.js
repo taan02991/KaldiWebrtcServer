@@ -37,18 +37,15 @@ const mutations = {
       state.transcribeMessage = message;
     },
     findInstruction(state) {
-      let maxLength = -1;
-      let maxString = '';
+      let maxLength = state.currentInstruction.length;
       for(let i = 0; i < state.instructions.length; i++){
         if(state.transcribeMessage.includes(state.instructions[i])){
           if(state.instructions[i].length > maxLength){
             maxLength = state.instructions[i].length;
-            maxString = state.instructions[i];
+            state.currentInstruction = state.instructions[i];
           }
         }
       }
-      state.currentInstruction = maxString;
-      console.log('currentInstruction: ' + maxString);
     }
 }
 const actions= {
@@ -65,7 +62,7 @@ const actions= {
     commit('changeTranscribeState', "wait");
   },
   close ({ commit, dispatch, state }) {
-    commit('findInstruction')
+    commit('findInstruction');
     commit('changeTranscribeState', "close");
     this.dispatch('search/executeInstruction');
   },
@@ -73,6 +70,7 @@ const actions= {
     msg = msg.trim();
     if(msg && msg != '<s>'){
       commit('changeMessage', msg);
+      commit('findInstruction');
     }
   },
   executeInstruction({ commit, dispatch, state, rootState }) {
@@ -213,6 +211,8 @@ const actions= {
         window.scrollTo(0, 0);
         break
     }
+    console.log('currentInstruction: ' + state.currentInstruction);
+    state.currentInstruction = '';
   }
 }
 
