@@ -19,14 +19,21 @@ const mutations =  {
       state.player = player;
     },
     changeMovie(state, id){
-      state.currentMovie = state.movieList.filter((movie) => movie.id === id)[0];
-      if(Array.isArray(state.currentMovie.source)){
-        state.currentSource = state.currentMovie.source[0];
-        state.player.src = state.currentSource.src;
+      let matchMovie = state.movieList.filter((movie) => movie.id === id)[0];
+      if(matchMovie){
+        console.log('Change movie');
+        state.currentMovie = matchMovie;
+        if(Array.isArray(state.currentMovie.source)){
+          state.currentSource = state.currentMovie.source[0];
+          state.player.src = state.currentSource.src;
+        }
+        else{
+          state.currentSource = state.currentMovie.source;
+          state.player.src = state.currentSource;
+        }
       }
       else{
-        state.currentSource = state.currentMovie.source;
-        state.player.src = state.currentSource;
+        console.log('Invalid movie id');
       }
     },
     setSpeed(state, n){
