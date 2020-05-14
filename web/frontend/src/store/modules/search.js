@@ -174,16 +174,27 @@ const actions= {
       case 'ล็อกเอาท์':
         dispatch('auth/logout',null, {root:true});
         break
+      case 'เข้า หน้า รายการ โปรด':
+      case 'เปิด หน้า รายการ โปรด':
+      case 'แสดง หน้า รายการ โปรด':
+        dispatch('page/changePage',"/Favourite",{root : true})
+        break
       case 'ตั้ง เป็น รายการ โปรด':
+      case 'ตั้ง ค่า เป็น รายการ โปรด':
+      case 'ตั้ง วิดีโอ เป็น รายการ โปรด':
+      case 'ตั้ง วิดีโอ ค่า เป็น รายการ โปรด':
         dispatch('auth/addFavorite', null, {root:true});
         break
       case 'เอา ออก จาก รายการ โปรด':
         dispatch('auth/removeFavorite',null, {root:true});
         break
         // TO-FIX BUG
-      case 'ปิด โปรแกรม' :
-        window.close()
-        break
+      // case 'เปิด โปรแกรม' :
+      //     window.open()
+      //     break
+      // case 'ปิด โปรแกรม' :
+      //   window.close()
+      //   break
       case 'เลือก วิดีโอ หมายเลข หนึ่ง' :
         dispatch('page/changePage', "/",{root:true});
         dispatch('video/changeMovie',"1",{root:true});
