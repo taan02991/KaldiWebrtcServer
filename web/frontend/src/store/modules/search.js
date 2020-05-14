@@ -74,17 +74,9 @@ const actions= {
     }
   },
   executeInstruction({ commit, dispatch, state, rootState }) {
-    switch(state.currentInstruction) {
+    // switch(state.currentInstruction) {
+      switch('เพิ่ม เสียง') {
       //Video Controller
-      case 'ปรับ คุณภาพ วิดีโอ ระดับ ต่ำ':
-        dispatch('video/setResolution', 360, {root:true});
-        break;
-      case  'ปรับ คุณภาพ วิดีโอ ระดับ กลาง':
-        dispatch('video/setResolution', 720, {root:true});
-        break;
-      case 'ปรับ คุณภาพ วิดีโอ ระดับ สูง':
-        dispatch('video/setResolution', 1080, {root:true});
-        break;
       case 'พอส วีดีโอ':
         dispatch('video/pause', null, {root:true});
         break;
@@ -106,12 +98,12 @@ const actions= {
       case 'ปิด ลูป':
         dispatch('video/setLoop', false, {root:true});
         break;
-      // case 'เล่น ตอน ต่อไป':
-      //   dispatch('video/openFullScreen', null, {root:true});
-      //   break;
-      // case 'เล่น ตอน ที่แล้ว':
-      //   dispatch('video/closeFullScreen', null, {root:true});
-      //   break;
+      case 'เล่น ตอน ต่อไป':
+        dispatch('video/changeMovie', String(parseInt(rootState.video.currentMovie.id, 10) + 1), {root:true});
+        break;
+      case 'เล่น ตอน ที่แล้ว':
+        dispatch('video/changeMovie', String(parseInt(rootState.video.currentMovie.id, 10) - 1), {root:true});
+        break;
       case 'เซ็ต ความเร็ว วีดีโอ หนึ่ง จุด สอง ห้า เท่า':
         dispatch('video/setSpeed', 1.25, {root:true});
         break;
@@ -157,6 +149,85 @@ const actions= {
       case 'ลด ความเร็ว วีดีโอ หนึ่ง':
         dispatch('video/setSpeed', rootState.video.currentSpeed - 1, {root:true});
         break;
+      case 'ย้อน วีดีโอ ไป หนึ่ง วินาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime - 1, {root:true});
+        break;
+      case 'ย้อน วีดีโอ ไป ห้า วินาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime - 5, {root:true});
+        break;
+      case 'ย้อน วีดีโอ ไป สิบ วินาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime - 10, {root:true});
+        break;
+      case 'ย้อน วีดีโอ ไป สิบ ห้า วินาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime - 15, {root:true});
+        break;
+      case 'ย้อน วีดีโอ ไป สาม สิบ วินาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime - 30, {root:true});
+        break;
+      case 'ย้อน วีดีโอ ไป หนึ่ง นาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime - 60, {root:true});
+        break;
+      case 'เลื่อน วีดีโอ ไป ห้า วินาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime + 5, {root:true});
+        break;
+      case 'เลื่อน วีดีโอ ไป สิบ วินาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime + 10, {root:true});
+        break;
+      case 'เลื่อน วีดีโอ ไป สิบ ห้า วินาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime + 15, {root:true});
+        break;
+      case 'เลื่อน วีดีโอ ไป สาม สิบ วินาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime + 30, {root:true});
+        break;
+      case 'เลื่อน วีดีโอ ไป หนึ่ง นาที':
+        dispatch('video/setCurrentTime', rootState.video.player.currentTime + 60, {root:true});
+        break;
+      case 'เล่น วีดีโอ ที่ เวลา ศูนย์ นาที':
+        dispatch('video/setCurrentTime', 0, {root:true});
+        break;
+      case 'เล่น วีดิโอ ที่ กลาง ตอน':
+        dispatch('video/setCurrentTime', rootState.video.player.duration / 2, {root:true});
+        break;
+      case 'เล่น วีดิโอ ที่ หนึ่ง ใน สี่ ของ ตอน':
+        dispatch('video/setCurrentTime', rootState.video.player.duration / 4, {root:true});
+        break;
+      case 'เล่น วีดิโอ ที่ สาม ใน สี่ ของ ตอน':
+        dispatch('video/setCurrentTime', rootState.video.player.duration / 4 * 3, {root:true});
+        break;
+      case 'ปิด เสียง':
+        dispatch('video/setMute', true, {root:true});
+        break;
+      case 'ตั้งค่า เสียง ศูนย์ เปอร์เซนต์':
+        dispatch('video/setVolume', 0, {root:true});
+        break;
+      case 'ตั้งค่า เสียง ยี่ สิบ ห้า เปอร์เซนต์':
+        dispatch('video/setVolume', 0.25, {root:true});
+        break;
+      case 'ตั้งค่า เสียง ห้า สิบ เปอร์เซนต์':
+        dispatch('video/setVolume', 0.5, {root:true});
+        break;
+      case 'ตั้งค่า เสียง เจ็ด สิบ ห้า เปอร์เซนต์':
+        dispatch('video/setVolume', 0.75, {root:true});
+        break;
+      case 'ตั้งค่า เสียง ร้อย เปอร์เซนต์':
+        dispatch('video/setVolume', 1, {root:true});
+        break;
+      case 'เพิ่ม เสียง':
+        dispatch('video/setVolume', rootState.video.player.volume + 0.10, {root:true});
+        break;
+      case 'ลด เสียง':
+        dispatch('video/setVolume', rootState.video.player.volume - 0.10, {root:true});
+        break;
+      case 'ปรับ คุณภาพ วิดีโอ ระดับ ต่ำ':
+        dispatch('video/setResolution', 360, {root:true});
+        break;
+      case  'ปรับ คุณภาพ วิดีโอ ระดับ กลาง':
+        dispatch('video/setResolution', 720, {root:true});
+        break;
+      case 'ปรับ คุณภาพ วิดีโอ ระดับ สูง':
+        dispatch('video/setResolution', 1080, {root:true});
+        break;
+  
 
       
       case 'ล็อกอิน นาม บี':
