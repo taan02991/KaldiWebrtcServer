@@ -48,25 +48,25 @@ let INSTRUCTIONS = ['โกวาจี', 'โกวาจี ฉัน แต�
 'วิดีโอ ความยาว เท่าไหร่', 'ขอ ความยาว วิดีโอ', 'วิดีโอ ชื่อ อะไร',
 'ขอ ชื่อ วิดีโอ']
 let addedInstruction = []
-const variousWord = ['วิดีโอ','วีดีโอ','วีดิโอ']
+const variousVideo = ['วิดีโอ','วีดีโอ','วีดิโอ']
 INSTRUCTIONS.forEach((instruction)=> {
-    if(instruction.includes(variousWord[0]) && !addedInstruction.includes(instruction)) {
-        const int1 = instruction.replace(variousWord[0],variousWord[1])
-        const int2 = instruction.replace(variousWord[0],variousWord[2])
+    if(instruction.includes(variousVideo[0]) && !addedInstruction.includes(instruction)) {
+        const int1 = instruction.replace(variousVideo[0],variousVideo[1])
+        const int2 = instruction.replace(variousVideo[0],variousVideo[2])
         INSTRUCTIONS.push(int1)
         INSTRUCTIONS.push(int2)
         addedInstruction.push(int1)
         addedInstruction.push(int2)
-    } else if(instruction.includes(variousWord[1]) && !addedInstruction.includes(instruction)) {
-        const int1 = instruction.replace(variousWord[1],variousWord[0])
-        const int2 = instruction.replace(variousWord[1],variousWord[2])
+    } else if(instruction.includes(variousVideo[1]) && !addedInstruction.includes(instruction)) {
+        const int1 = instruction.replace(variousVideo[1],variousVideo[0])
+        const int2 = instruction.replace(variousVideo[1],variousVideo[2])
         INSTRUCTIONS.push(int1)
         INSTRUCTIONS.push(int2)
         addedInstruction.push(int1)
         addedInstruction.push(int2)
-    } else if(instruction.includes(variousWord[2]) && !addedInstruction.includes(instruction)) {
-        const int1 = instruction.replace(variousWord[2],variousWord[0])
-        const int2 = instruction.replace(variousWord[2],variousWord[1])
+    } else if(instruction.includes(variousVideo[2]) && !addedInstruction.includes(instruction)) {
+        const int1 = instruction.replace(variousVideo[2],variousVideo[0])
+        const int2 = instruction.replace(variousVideo[2],variousVideo[1])
         INSTRUCTIONS.push(int1)
         INSTRUCTIONS.push(int2)
         addedInstruction.push(int1)

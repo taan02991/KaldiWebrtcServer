@@ -10,6 +10,7 @@ const state =  {
 }
 import {Howl, Howler} from 'howler';
 // var siriSound = new Audio('../../public/siri_soundeffect.mp3')
+const variousVideo = ['วิดีโอ','วีดีโอ','วีดิโอ']
 const mutations = {
     changeTranscribeState(state, status){
       if(status == "start") {
@@ -46,6 +47,8 @@ const mutations = {
           }
         }
       }
+      state.currentInstruction = state.currentInstruction.replace(variousVideo[0],variousVideo[1])
+      state.currentInstruction = state.currentInstruction.replace(variousVideo[2],variousVideo[1])
     }
 }
 const actions= {
