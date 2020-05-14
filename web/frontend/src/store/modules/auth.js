@@ -11,7 +11,7 @@ const state = {
         "แตงไทย" : [],
         "ฟร้องซ์" : [],
     },
-    who : ""
+    who : "GUEST"
 }
   
 const getters = {
@@ -29,11 +29,10 @@ const mutations =  {
     ...cloneDeep(baseMutations),
     login(state, who) {
         state.who = who;
-
         state.isLogin = true
     },
     logout(state) {
-        state.who = null
+        state.who = "GUEST"
         state.isLogin = false
     },
     addFavorite(state, payload) {

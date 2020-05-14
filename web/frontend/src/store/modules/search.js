@@ -9,21 +9,21 @@ const state =  {
     currentInstruction: '',
 }
 import {Howl, Howler} from 'howler';
-var siriSound = new Audio('../../public/siri_soundeffect.mp3')
+// var siriSound = new Audio('../../public/siri_soundeffect.mp3')
 const mutations = {
     changeTranscribeState(state, status){
       if(status == "start") {
         state.trabscribeState = "Waiting me prep"
-        new Howl({
+        let s = new Howl({
             src: ['./siri_soundeffect.mp3'],
             html5: true,
             autoplay: true,
             volume: 0.5,
+            rate: 1.6,
             onload: function() { console.log('song loaded!')},
             onloaderror: function(id, error) { console.log('loadError: ' + id +' - ' + error)},
             onplay: () => { console.log('song playing (hopefully)')}
         });
-       
       } else if(status == "listen"){
         state.trabscribeState = "Listening ..."
         state.overlay = true
@@ -107,10 +107,9 @@ const actions= {
       case 'เอา ออก จาก รายการ โปรด':
         dispatch('auth/removeFavorite',null, {root:true});
         break
+        // TO-FIX BUG
       case 'ปิด โปรแกรม' :
-        if(confirm('Are you going to close it?')) {
-          window.close()
-        }
+        window.close()
         break
       case 'เลือก วิดีโอ หมายเลข หนึ่ง' :
         dispatch('page/changePage', "/",{root:true});

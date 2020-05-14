@@ -1,5 +1,25 @@
 <template>
- <v-timeline align-top dense class="align-fav">
+ <!-- <div> -->
+ <!-- <v-card class="overflow-hidden">
+    <v-app-bar
+      :collapse="!collapseOnScroll"
+      :collapse-on-scroll="collapseOnScroll"
+      absolute
+      color="deep-purple accent-4"
+      dark
+      scroll-target="#scrolling-techniques-6"
+    >
+      <v-toolbar-title>{{who}}'s Favourite Movie</v-toolbar-title>
+    </v-app-bar>
+    <v-sheet
+      id="scrolling-techniques-6"
+      class="overflow-y-auto"
+      max-height="600"
+    >
+      <v-container style="height: 1000px;"></v-container>
+    </v-sheet>
+  </v-card> -->
+  <v-timeline align-top dense class="align-fav">
     <v-timeline-item
       v-for="movie in favouriteList[who]"
       :key="movie.id"
@@ -16,6 +36,7 @@
       </v-card>
     </v-timeline-item>
   </v-timeline> 
+  <!-- </div> -->
 </template>
 <script>
 
@@ -24,6 +45,11 @@ export default {
   name : 'Favourite',
   components : {
       VideoItem
+  },
+  data(){
+    return {
+      collapseOnScroll: true
+    }
   },
   computed: {
     who() {

@@ -20,13 +20,21 @@
         <router-link class="nav-link" to="/searchPage">SearchPage</router-link>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">  
     </form>
-    <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="button" @click ="searchPage">Search</button>
-    <button class="btn btn-outline-success my-2 my-sm-0 ml-2 spacing" @click="process"> {{ (isLogin) ? "Logout": "Login"  }}</button>
-    <v-avatar>
+    <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="button" @click ="searchPage">Search</button> -->
+    <!-- <button class="btn btn-outline-success my-2 my-sm-0 ml-2 spacing" @click="process"> {{ (isLogin) ? "Logout": "Login"  }}</button> -->
+    <!-- <strong v-html="name" class="spacing"></strong> -->
+    <v-chip
+      class="ma-2 fix-size"
+      color="indigo"
+      text-color="white"
+      large
+    >
+    <strong v-html="name" class="spacing display-1" right></strong> 
+    </v-chip>
+    <v-avatar left>
       <img
         src="https://cdn.vuetifyjs.com/images/john.jpg"
         alt="John"
@@ -43,7 +51,10 @@ export default {
   },
   computed : {
     isLogin() {
-            return this.$store.state.auth.isLogin;
+      return this.$store.state.auth.isLogin;
+    },
+    name(){
+      return this.$store.state.auth.who;
     }
   },
   data : function() {
@@ -83,5 +94,8 @@ return {
  .spacing {
    margin-left: 10px;
    margin-right: 10px;
+ }
+ .fix-size {
+   width: auto;
  }
 </style>

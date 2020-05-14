@@ -15,11 +15,12 @@
           >
           <div class="overlay-content">
             <v-col>
-              <v-row>
-                <p class="display-4 font-weight-bold">{{transcribeMessage}}</p>
+              <v-row class="d-flex justify-center">
+                <p class="display-3 font-weight-bold">{{transcribeMessage}}</p>
               </v-row>
-              <v-row>
-                <Siriwave></Siriwave>
+              <v-row class="d-flex justify-center"
+              >
+                <Siriwave ></Siriwave>
               </v-row>
             </v-col>
           </div>
@@ -62,7 +63,7 @@ export default {
         return this.$store.state.search.transcribeMessage;
     },
     absolute() {
-      return true
+      return false
     },
     opacity() {
       return this.$store.state.search.opacity;
