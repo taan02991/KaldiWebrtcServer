@@ -1,11 +1,6 @@
 import DATA from '../../assets/data'
 
 const state = {
-    totalTvCount: 10, // The TV inventory
-    isLarryHappy: true,  
-    isJennyHappy: true,
-    
-    //VideoPlayer
     videoNums: DATA.length,
     player: null,
     currentMovie: DATA[2],
@@ -16,10 +11,6 @@ const state = {
 }
   
 const getters = {
-    // Check if both Larry and Jenny are happy
-    happyStaff: state => {
-        return state.isLarryHappy && state.isJennyHappy
-    }
 }
   
 const mutations =  {
