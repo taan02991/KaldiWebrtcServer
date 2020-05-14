@@ -209,6 +209,41 @@ const actions= {
         dispatch('video/changeMovie',"5",{root:true});
         window.scrollTo(0, 0);
         break
+      case 'เปิด โหมด หมายเลข หนึ่ง' :
+        dispatch('page/changeMode', "1",{root:true});
+        dispatch('page/changePage', "/searchPage",{root:true});
+        window.scrollTo(0, 0);
+        break
+      case 'เปิด โหมด หมายเลข สอง' :
+        dispatch('page/changeMode', "2",{root:true});
+        dispatch('page/changePage', "/searchPage",{root:true});
+        window.scrollTo(0, 0);
+        break
+      case 'เปิด โหมด หมายเลข สาม' :
+        dispatch('page/changeMode', "3",{root:true});
+        dispatch('page/changePage', "/searchPage",{root:true});
+        window.scrollTo(0, 0);
+        break
+      case 'เปิด โหมด หมายเลข สี่' :
+        dispatch('page/changeMode', "4",{root:true});
+        dispatch('page/changePage', "/searchPage",{root:true});
+        window.scrollTo(0, 0);
+        break
+      // case 'เปิด โหมด หมายเลข ห้า' :
+      //   dispatch('page/changeMode', "5",{root:true});
+      //   dispatch('page/changePage', "/searchPage",{root:true});
+      //   window.scrollTo(0, 0);
+      //   break
+      case 'เข้า หน้า ค้นหา':
+        dispatch('page/changeMode', null,{root:true});
+        dispatch('page/changePage',"/searchPage",{root:true});
+        window.scrollTo(0, 0);
+        break
+      case 'เข้า หน้า โฮมเพจ':
+        dispatch('page/changeMode', null,{root:true});
+        dispatch('page/changePage',"/",{root:true});
+        window.scrollTo(0, 0);
+        break
     }
     console.log('currentInstruction: ' + state.currentInstruction);
     state.currentInstruction = '';
