@@ -14,6 +14,7 @@ const videoSource = [
   
   const DATA = [{
     id: '1',
+    mode: '1',
     title: '5 Centimeters per Second',
     author: 'Makoto Shinkai',
     date: '2007',
@@ -26,6 +27,7 @@ const videoSource = [
     duration: '1:02:35',
   }, {
     id: '2',
+    mode: '2',
     title: 'The Garden of Words',
     author: 'Makoto Shinkai',
     date: '2013',
@@ -38,6 +40,7 @@ const videoSource = [
     duration: '00:46:04'
   },  {
     id: '3',
+    mode: '3',
     title: 'Your Name',
     author: 'Makoto Shinkai',
     date: '2016',
@@ -50,6 +53,7 @@ const videoSource = [
     duration: '01:46:04'
   }, {
     id: '4',
+    mode: '4',
     title: 'Weathering with You',
     author: 'Makoto Shinkai',
     date: '2019',
@@ -62,6 +66,7 @@ const videoSource = [
     duration: '01:51:00'
   },{
     id: '5',
+    mode: '5',
     title: 'Weathering with You',
     author: 'Makoto Shinkai',
     date: '2019',
@@ -74,6 +79,7 @@ const videoSource = [
     duration: '01:51:00'
   }, {
     id: '6',
+    mode: '4',
     title: 'Weathering with You',
     author: 'Makoto Shinkai',
     date: '2019',
@@ -86,6 +92,7 @@ const videoSource = [
     duration: '01:51:00'
   }, {
     id: '7',
+    mode: '4',
     title: 'Weathering with You',
     author: 'Makoto Shinkai',
     date: '2019',
@@ -96,7 +103,34 @@ const videoSource = [
     cover3: 'https://img1.wxzxzj.com/vpc-example-cover-weathering-c.jpg',
     source: 'https://media.vued.vanthink.cn/y2mate.com%20-%20Weathering%20With%20You%20%5BOfficial%20Subtitled%20Trailer,%20GKIDS%5D_Q6iK6DjV_iE_1080p.mp4',
     duration: '01:51:00'
-  },
+  },{
+    id: '8',
+    mode: '1',
+    title: '5 Centimeters per Second',
+    author: 'Makoto Shinkai',
+    date: '2007',
+    desc: 'The story is set in Japan, beginning in the 1990s up until the present day (2008),[a] with each act centered on a boy named Takaki Tōno. The first act takes place during a time when cell phones are uncommon and email had not yet reached the general population',
+    link: 'https://www.youtube.com/watch?v=tr8JzTLlq30',
+    cover: 'https://img1.wxzxzj.com/vpc-example-cover-5cm.png',
+    cover2: 'https://img1.wxzxzj.com/vpc-example-cover-5cm-v.jpg',
+    cover3: 'https://img1.wxzxzj.com/vpc-example-cover-5cm-c.jpg',
+    source: 'https://media.vued.vanthink.cn/5%20Centimeters%20Per%20Second%20Trailer%20HD.mp4',
+    duration: '1:02:35',
+  },{
+    id: '9',
+    mode: '2',
+    title: 'The Garden of Words',
+    author: 'Makoto Shinkai',
+    date: '2013',
+    desc: "The Garden of Words is considered a romance[1] and drama film.[2] It opens at the start of the rainy season in Tokyo with Takao Akizuki (秋月 孝雄, Akizuki Takao), a 15-year-old student and aspiring shoemaker, opting to skip his first class and sketch shoe designs in the garden at Shinjuku Gyoen. There he encounters Yukari Yukino (雪野 百香里, Yukino Yukari), a 27-year-old woman who is skipping work and enjoying beer and chocolate.",
+    link: 'https://www.bilibili.com/bangumi/play/ss2546/?from=search&seid=5227685957756304310',
+    cover: 'https://img1.wxzxzj.com/vpc-example-cover-the-garden.png',
+    cover2: 'https://img1.wxzxzj.com/vpc-example-cover-the-garden-v.jpg',
+    cover3: 'https://img1.wxzxzj.com/vpc-example-cover-the-garden-c.jpg',
+    source: 'https://media.vued.vanthink.cn/the_garden_of_words_trailer_english__1080p.mp4',
+    duration: '00:46:04'
+  }, 
+  
 ];
   
   export default DATA;

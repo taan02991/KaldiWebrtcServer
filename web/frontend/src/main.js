@@ -3,7 +3,6 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
 
-
 import searchPage from './views/searchPage'
 import DefaultRecorder from './views/DefaultRecorder'
 import Favourite from './views/Favourite'
