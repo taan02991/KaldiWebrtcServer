@@ -180,9 +180,9 @@ const actions= {
         dispatch('page/changePage',"/Favourite",{root : true})
         break
       case 'ตั้ง เป็น รายการ โปรด':
-      case 'ตั้ง ค่า เป็น รายการ โปรด':
+      case 'ตั้งค่า เป็น รายการ โปรด':
       case 'ตั้ง วิดีโอ เป็น รายการ โปรด':
-      case 'ตั้ง วิดีโอ ค่า เป็น รายการ โปรด':
+      case 'ตั้งค่า วิดีโอ เป็น รายการ โปรด':
         dispatch('auth/addFavorite', null, {root:true});
         break
       case 'เอา ออก จาก รายการ โปรด':
