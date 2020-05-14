@@ -17,7 +17,7 @@
             </div>
             <div class="col-4 play-list">
                 <h2>Play List</h2>
-                <VideoItem v-for="movie in movieList" :key="movie.cover" :item="movie"></VideoItem>
+                <VideoItem v-for="movie in movieList" :key="movie.id" :item="movie"></VideoItem>
             </div>
         </div>
         <button type='button' @click="test()">Test</button>
