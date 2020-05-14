@@ -43,9 +43,11 @@ const mutations =  {
     },
     removeFavorite(state,payload) {
         console.log(`who : ${payload.who}, movieFav : ${payload.id}`)
-        state.favouriteList = state.favouriteList[payload.who].filter(movie => {
+        console.log(state.favouriteList)
+        state.favouriteList[payload.who] = state.favouriteList[payload.who].filter(movie => {
             return movie.id != payload.id
         })
+        console.log(state.favouriteList)
     },
     refetchFavoriteList(state) {
         if(state.isLogin) {

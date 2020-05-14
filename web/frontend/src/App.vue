@@ -23,10 +23,7 @@
               </v-row>
             </v-col>
           </div>
-          <!-- <button v-waves.button>Vue-Waves</button>
-          <i class="fa fa-times" v-waves.circle></i> -->
         </v-overlay>
-      <!-- </v-fade-transition> -->
       <NavBar/>
       <router-view>
       </router-view>
@@ -34,6 +31,7 @@
       </v-card>
     </v-hover>
     <SnackAlert />
+    <!-- <vue-audio :file="siri_sound" /> -->
   </v-app>
 </template>
 
@@ -43,6 +41,7 @@ import NavBar from './components/NavBar.vue'
 import Recognitor from './components/Recognitor.vue'
 import Siriwave from './components/Siriwave'
 import SnackAlert from './components/SnackBar'
+// import VueAudio from 'vue-audio';
 
 export default {
   name: 'App',
@@ -50,7 +49,13 @@ export default {
     NavBar,
     Recognitor,
     Siriwave,
-    SnackAlert
+    SnackAlert,
+    // 'vue-audio': VueAudio
+  },
+  data() {
+    return {
+      siri_sound : './siri_soundeffect.mp3'
+    }
   },
   computed:{
     transcribeMessage() {

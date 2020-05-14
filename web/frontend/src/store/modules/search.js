@@ -8,16 +8,22 @@ const state =  {
     instructions: INSTRUCTIONS,
     currentInstruction: '',
 }
-// require('howler');
-let audio = new Audio({
-  src: "https://drive.google.com/a/chula.ac.th/file/d/1cAajRGkm3bLe0TkREhJ3tbQnHyRbWSB6/view?usp=sharing",
-  volume: 0.5,
-})
+import {Howl, Howler} from 'howler';
+var siriSound = new Audio('../../public/siri_soundeffect.mp3')
 const mutations = {
     changeTranscribeState(state, status){
       if(status == "start") {
         state.trabscribeState = "Waiting me prep"
-        audio.play();
+        new Howl({
+            src: ['./siri_soundeffect.mp3'],
+            html5: true,
+            autoplay: true,
+            volume: 0.5,
+            onload: function() { console.log('song loaded!')},
+            onloaderror: function(id, error) { console.log('loadError: ' + id +' - ' + error)},
+            onplay: () => { console.log('song playing (hopefully)')}
+        });
+       
       } else if(status == "listen"){
         state.trabscribeState = "Listening ..."
         state.overlay = true
@@ -159,7 +165,7 @@ const actions= {
         dispatch('auth/login', "บี", {root:true});
         break
       case 'ล็อกอิน นาม ตาล':
-        dispatch('auth/login', "บี", {root:true});
+        dispatch('auth/login', "ตาล", {root:true});
         break
       case 'ล็อกอิน นาม แตงไทย':
         dispatch('auth/login', "แตงไทย", {root:true});
@@ -175,6 +181,36 @@ const actions= {
         break
       case 'เอา ออก จาก รายการ โปรด':
         dispatch('auth/removeFavorite',null, {root:true});
+        break
+      case 'ปิด โปรแกรม' :
+        if(confirm('Are you going to close it?')) {
+          window.close()
+        }
+        break
+      case 'เลือก วิดีโอ หมายเลข หนึ่ง' :
+        dispatch('page/changePage', "/",{root:true});
+        dispatch('video/changeMovie',"1",{root:true});
+        window.scrollTo(0, 0);
+        break
+      case 'เลือก วิดีโอ หมายเลข สอง' :
+        dispatch('page/changePage', "/",{root:true});
+        dispatch('video/changeMovie',"2",{root:true});
+        window.scrollTo(0, 0);
+        break
+      case 'เลือก วิดีโอ หมายเลข สาม' :
+        dispatch('page/changePage', "/",{root:true});
+        dispatch('video/changeMovie',"3",{root:true});
+        window.scrollTo(0, 0);
+        break
+      case 'เลือก วิดีโอ หมายเลข สี่' :
+        dispatch('page/changePage', "/",{root:true});  
+        dispatch('video/changeMovie',"4",{root:true});
+        window.scrollTo(0, 0);
+        break
+      case 'เลือก วิดีโอ หมายเลข ห้า' :
+        dispatch('page/changePage', "/",{root:true});
+        dispatch('video/changeMovie',"5",{root:true});
+        window.scrollTo(0, 0);
         break
     }
   }

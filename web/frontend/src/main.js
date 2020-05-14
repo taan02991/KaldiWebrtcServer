@@ -3,6 +3,8 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import store from '@/store'
 
+
+import searchPage from './views/searchPage'
 import DefaultRecorder from './views/DefaultRecorder'
 import Favourite from './views/Favourite'
 import VideoMain from './views/VideoMain'
@@ -17,20 +19,22 @@ Vue.config.productionTip = false
 const routes = [
     { path: '/default-recorder', component: DefaultRecorder },
     { path: '/', component: VideoMain },
+    { path: '/searchPage',component: searchPage},
     { path: '/Favourite', component: Favourite}
 ]
 
 
-const router = new VueRouter({
+export const router = new VueRouter({
   routes
 })
 
 new Vue({
-  render: h => h(App),
   router: router,
+  render: h => h(App),
   vuetify,
   store: store,
   icons: {
     iconfont: 'mdi', // 'mdi' || 'mdiSvg' || 'md' || 'fa' || 'fa4' || 'faSvg'
   },
 }).$mount('#app')
+

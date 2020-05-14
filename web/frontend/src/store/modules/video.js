@@ -2,10 +2,11 @@ import DATA from '../../assets/data'
 
 const state = {
     totalTvCount: 10, // The TV inventory
-    isLarryHappy: true, 
+    isLarryHappy: true,  
     isJennyHappy: true,
-
+    
     //VideoPlayer
+    videoNums: DATA.length,
     player: null,
     currentMovie: DATA[2],
     movieList: DATA,

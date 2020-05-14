@@ -5,6 +5,7 @@ import auth from './modules/auth'
 import search from './modules/search'
 import transcribe from './modules/transcribe'
 import notification from './modules/notification'
+import page from './modules/page'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -12,6 +13,7 @@ export default new Vuex.Store({
     video,
     auth,
     notification,
+    page,
     search,
     transcribe
   }

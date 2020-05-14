@@ -13,7 +13,7 @@ const videoSource = [
   
   
   const DATA = [{
-    id: 'gdbzhhifhh',
+    id: '1',
     title: '5 Centimeters per Second',
     author: 'Makoto Shinkai',
     date: '2007',
@@ -23,9 +23,9 @@ const videoSource = [
     cover2: 'https://img1.wxzxzj.com/vpc-example-cover-5cm-v.jpg',
     cover3: 'https://img1.wxzxzj.com/vpc-example-cover-5cm-c.jpg',
     source: 'https://media.vued.vanthink.cn/5%20Centimeters%20Per%20Second%20Trailer%20HD.mp4',
-    duration: '1:02:35'
+    duration: '1:02:35',
   }, {
-    id: 'hfkhzwgnwx',
+    id: '2',
     title: 'The Garden of Words',
     author: 'Makoto Shinkai',
     date: '2013',
@@ -37,7 +37,7 @@ const videoSource = [
     source: 'https://media.vued.vanthink.cn/the_garden_of_words_trailer_english__1080p.mp4',
     duration: '00:46:04'
   },  {
-    id: 'jiytmghmyo',
+    id: '3',
     title: 'Your Name',
     author: 'Makoto Shinkai',
     date: '2016',
@@ -49,7 +49,7 @@ const videoSource = [
     source: videoSource,
     duration: '01:46:04'
   }, {
-    id: 'szmnyobnap',
+    id: '4',
     title: 'Weathering with You',
     author: 'Makoto Shinkai',
     date: '2019',
@@ -60,7 +60,44 @@ const videoSource = [
     cover3: 'https://img1.wxzxzj.com/vpc-example-cover-weathering-c.jpg',
     source: 'https://media.vued.vanthink.cn/y2mate.com%20-%20Weathering%20With%20You%20%5BOfficial%20Subtitled%20Trailer,%20GKIDS%5D_Q6iK6DjV_iE_1080p.mp4',
     duration: '01:51:00'
-  }];
+  },{
+    id: '5',
+    title: 'Weathering with You',
+    author: 'Makoto Shinkai',
+    date: '2019',
+    desc: "High schooler Hodaka Morishima runs away from his island home, planning to move to Tokyo. When his ferry is hit by a freak rainstorm, he is saved by Keisuke Suga, who gives Hodaka his business card. In Tokyo, Hodaka struggles to find work; a teenage McDonald's employee, Hina, takes pity on him and gives him food. After a chance encounter with a mobster, Hodaka finds a gun in a trashcan. Suga hires him as his assistant at a small publishing company, where he meets Suga's niece Natsumi. They investigate urban legends relating to the unusually rainy weather in Tokyo; from a psychic, they hear the legend of a \"weather maiden\" who can control the weather.",
+    link: 'https://www.youtube.com/watch?v=ps8qwWG8Uio',
+    cover: 'https://img1.wxzxzj.com/vpc-example-cover-weathering.png',
+    cover2: 'https://img1.wxzxzj.com/vpc-example-cover-weathering-v.jpg',
+    cover3: 'https://img1.wxzxzj.com/vpc-example-cover-weathering-c.jpg',
+    source: 'https://media.vued.vanthink.cn/y2mate.com%20-%20Weathering%20With%20You%20%5BOfficial%20Subtitled%20Trailer,%20GKIDS%5D_Q6iK6DjV_iE_1080p.mp4',
+    duration: '01:51:00'
+  }, {
+    id: '6',
+    title: 'Weathering with You',
+    author: 'Makoto Shinkai',
+    date: '2019',
+    desc: "High schooler Hodaka Morishima runs away from his island home, planning to move to Tokyo. When his ferry is hit by a freak rainstorm, he is saved by Keisuke Suga, who gives Hodaka his business card. In Tokyo, Hodaka struggles to find work; a teenage McDonald's employee, Hina, takes pity on him and gives him food. After a chance encounter with a mobster, Hodaka finds a gun in a trashcan. Suga hires him as his assistant at a small publishing company, where he meets Suga's niece Natsumi. They investigate urban legends relating to the unusually rainy weather in Tokyo; from a psychic, they hear the legend of a \"weather maiden\" who can control the weather.",
+    link: 'https://www.youtube.com/watch?v=ps8qwWG8Uio',
+    cover: 'https://img1.wxzxzj.com/vpc-example-cover-weathering.png',
+    cover2: 'https://img1.wxzxzj.com/vpc-example-cover-weathering-v.jpg',
+    cover3: 'https://img1.wxzxzj.com/vpc-example-cover-weathering-c.jpg',
+    source: 'https://media.vued.vanthink.cn/y2mate.com%20-%20Weathering%20With%20You%20%5BOfficial%20Subtitled%20Trailer,%20GKIDS%5D_Q6iK6DjV_iE_1080p.mp4',
+    duration: '01:51:00'
+  }, {
+    id: '7',
+    title: 'Weathering with You',
+    author: 'Makoto Shinkai',
+    date: '2019',
+    desc: "High schooler Hodaka Morishima runs away from his island home, planning to move to Tokyo. When his ferry is hit by a freak rainstorm, he is saved by Keisuke Suga, who gives Hodaka his business card. In Tokyo, Hodaka struggles to find work; a teenage McDonald's employee, Hina, takes pity on him and gives him food. After a chance encounter with a mobster, Hodaka finds a gun in a trashcan. Suga hires him as his assistant at a small publishing company, where he meets Suga's niece Natsumi. They investigate urban legends relating to the unusually rainy weather in Tokyo; from a psychic, they hear the legend of a \"weather maiden\" who can control the weather.",
+    link: 'https://www.youtube.com/watch?v=ps8qwWG8Uio',
+    cover: 'https://img1.wxzxzj.com/vpc-example-cover-weathering.png',
+    cover2: 'https://img1.wxzxzj.com/vpc-example-cover-weathering-v.jpg',
+    cover3: 'https://img1.wxzxzj.com/vpc-example-cover-weathering-c.jpg',
+    source: 'https://media.vued.vanthink.cn/y2mate.com%20-%20Weathering%20With%20You%20%5BOfficial%20Subtitled%20Trailer,%20GKIDS%5D_Q6iK6DjV_iE_1080p.mp4',
+    duration: '01:51:00'
+  },
+];
   
   export default DATA;
   

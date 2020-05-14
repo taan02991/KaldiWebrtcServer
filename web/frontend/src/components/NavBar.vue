@@ -13,14 +13,18 @@
       <li class="nav-item">
         <router-link class="nav-link" to="/default-recorder">Default Recorder</router-link>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" v-if="isLogin">
         <router-link class="nav-link" to="/Favourite">Favourite</router-link>
+      </li>
+      <li class="nav-item">
+        <router-link class="nav-link" to="/searchPage">SearchPage</router-link>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      
     </form>
+    <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="button" @click ="searchPage">Search</button>
     <button class="btn btn-outline-success my-2 my-sm-0 ml-2 spacing" @click="process"> {{ (isLogin) ? "Logout": "Login"  }}</button>
     <v-avatar>
       <img
@@ -48,6 +52,12 @@ return {
   };
 },
   methods : {
+    searchPage(){
+      // this.$router.push('/searchPage');
+      this.$store.dispatch('page/changePage',"/searchPage");
+      
+      //this.$router.replace('/searchPage');
+    },
     process() {
       (this.isLogin) ? this.logout() : this.login()
       // this.searching = true
