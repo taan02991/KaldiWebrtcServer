@@ -103,4 +103,7 @@ return {
  .fix-size {
    width: auto;
  }
+ .logo {
+   width : 20 px;
+ }
 </style>

@@ -20,7 +20,22 @@
                 <VideoItem v-for="movie in movieList" :key="movie.id" :item="movie"></VideoItem>
             </div>
         </div>
-        <button type='button' @click="test()">Test</button>
+        <!-- <button type='button' @click="test()">Test</button> -->
+        <v-overlay
+            light
+            v-show="overlay"
+            :absolute="absolute"
+            :opacity="opacity"
+            color="#036358"
+          >
+          <div class="overlay-content popupImage d-flex justify-center">
+            <div class="logo">
+              <v-img 
+                :src="require('/usr/src/app/src/assets/LOGO/logo.png')">
+              </v-img>
+            </div>
+          </div>
+        </v-overlay>
     </div>
     
 </template>
@@ -36,6 +51,11 @@ export default {
     VideoItem,
     VideoPlayer,
     ControlBar
+  },
+  data(){
+    return {
+      overlay : false
+    }
   },
   methods: {
     test: function(){
@@ -55,6 +75,14 @@ export default {
     movieList() {
         return this.$store.state.video.movieList;
     }
+  },
+  mounted() {
+    setTimeout(() => {
+            this.overlay = true
+    }, 100);
+    setTimeout(() => {
+            this.overlay = false
+    }, 1300);
   }
   
 }
@@ -88,5 +116,12 @@ export default {
     font-size: 18px;
     color: rgba(0,0,0, .85);
     padding-bottom: 10px;
+  }
+  .popupImage {
+    margin-top: 300px;
+  }
+  .logo {
+    width: 60%;
+    height: 60%;
   }
 </style>

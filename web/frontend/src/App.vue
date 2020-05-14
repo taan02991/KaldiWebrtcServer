@@ -15,6 +15,7 @@
           >
           <div class="overlay-content">
             <v-col>
+              <v-spacer></v-spacer>
               <v-row class="d-flex justify-center">
                 <p class="display-3 font-weight-bold">{{transcribeMessage}}</p>
               </v-row>
