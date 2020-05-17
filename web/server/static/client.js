@@ -48,7 +48,7 @@ function negotiate() {
         });
     }).then(function () {
         var offer = pc.localDescription;
-        console.log(offer.sdp);
+        //console.log(offer.sdp);
         return fetch('/offer', {
             body: JSON.stringify({
                 sdp: offer.sdp,
@@ -62,10 +62,10 @@ function negotiate() {
     }).then(function (response) {
         return response.json();
     }).then(function (answer) {
-        console.log(answer.sdp);
+        //console.log(answer.sdp);
         return pc.setRemoteDescription(answer);
     }).catch(function (e) {
-        console.log(e);
+        //console.log(e);
         btn_show_start();
     });
 }
@@ -87,11 +87,11 @@ function start() {
     dc = pc.createDataChannel('chat', parameters);
     dc.onclose = function () {
         clearInterval(dcInterval);
-        console.log('Closed data channel');
+        //console.log('Closed data channel');
         btn_show_start();
     };
     dc.onopen = function () {
-        console.log('Opened data channel');
+        //console.log('Opened data channel');
     };
     dc.onmessage = function (evt) {
         statusField.innerText = 'Listening...';
@@ -115,7 +115,7 @@ function start() {
 
     pc.oniceconnectionstatechange = function () {
         if (pc.iceConnectionState == 'disconnected') {
-            console.log('Disconnected');
+            //console.log('Disconnected');
             btn_show_start();
         }
     }
@@ -131,7 +131,7 @@ function start() {
         });
         return negotiate();
     }, function (err) {
-        console.log('Could not acquire media: ' + err);
+        //console.log('Could not acquire media: ' + err);
         btn_show_start();
     });
 }

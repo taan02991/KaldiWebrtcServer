@@ -17,7 +17,7 @@ const state = {
 const getters = {
     movieList: state => {
         if(state.isLogin) {
-            console.log(state.favouriteList[state.who])
+            //console.log(state.favouriteList[state.who])
             return state.favouriteList[state.who]
         } else {
             return []
@@ -36,17 +36,17 @@ const mutations =  {
         state.isLogin = false
     },
     addFavorite(state, payload) {
-        console.log(`who : ${payload.who}, movieFav : ${payload.movie.title}`)
-        console.log(state.favouriteList[payload.who])
+        //console.log(`who : ${payload.who}, movieFav : ${payload.movie.title}`)
+        //console.log(state.favouriteList[payload.who])
         state.favouriteList[payload.who].push(payload.movie)
     },
     removeFavorite(state,payload) {
-        console.log(`who : ${payload.who}, movieFav : ${payload.id}`)
-        console.log(state.favouriteList)
+        //console.log(`who : ${payload.who}, movieFav : ${payload.id}`)
+        //console.log(state.favouriteList)
         state.favouriteList[payload.who] = state.favouriteList[payload.who].filter(movie => {
             return movie.id != payload.id
         })
-        console.log(state.favouriteList)
+        //console.log(state.favouriteList)
     },
     refetchFavoriteList(state) {
         if(state.isLogin) {

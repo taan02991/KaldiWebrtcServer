@@ -13,7 +13,7 @@ const mutations = {
         state.countTranscribe = 0
     },
     setWakeWordMode(state, bl) {
-        console.log("Set wake word mode: " + bl);
+        //console.log("Set wake word mode: " + bl);
         state.wakeWordMode = bl;
     },
     changeMessage(state, msg) {

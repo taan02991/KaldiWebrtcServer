@@ -21,7 +21,7 @@ const mutations =  {
     changeMovie(state, id){
       let matchMovie = state.movieList.filter((movie) => movie.id === id)[0];
       if(matchMovie){
-        console.log('Change movie');
+        //console.log('Change movie');
         state.currentMovie = matchMovie;
         if(Array.isArray(state.currentMovie.source)){
           state.currentSource = state.currentMovie.source[0];
@@ -33,13 +33,13 @@ const mutations =  {
         }
       }
       else{
-        console.log('Invalid movie id');
+        //console.log('Invalid movie id');
       }
     },
     setSpeed(state, n){
       state.currentSpeed = n;
       state.player.playbackRate = n;
-      console.log('Speed ' + n + 'x')
+      //console.log('Speed ' + n + 'x')
     },
     setResolution(state, n){
       let targetSource = state.currentMovie.source.filter(source => source.resolution === n)[0];
@@ -52,40 +52,40 @@ const mutations =  {
         state.player.src = state.currentSource.src;
         state.player.currentTime = time;
         state.player.play();
-        console.log(n + 'p');
+        //console.log(n + 'p');
       }
       else{
-        console.log('Resolution is not available');
+        //console.log('Resolution is not available');
       }
     },
     setLoop(state, bl) {
       state.isLoop = bl;
       state.player.loop = bl;
-      console.log('Set loop ' + bl);
+      //console.log('Set loop ' + bl);
     },
     setMute(state, bl) {
       state.player.muted = bl;
-      console.log('Set mute' + bl);
+      //console.log('Set mute' + bl);
     },
     play(state) {
       state.player.play();
-      console.log('play');
+      //console.log('play');
     },
     pause(state) {
       state.player.pause();
-      console.log('pause');
+      //console.log('pause');
     },
     setCurrentTime(state, time) {
       if(time < 0 || time > state.player.duration){
-        console.log('Invalid time');
+        //console.log('Invalid time');
       }
       else{
         state.player.currentTime = time;
-        console.log("Set current time = ", time);
+        //console.log("Set current time = ", time);
       }
     },
     openFullScreen(state) {
-      console.log('open full screen');
+      //console.log('open full screen');
       if (state.player.requestFullscreen) {
         state.player.requestFullscreen();
       } else if (state.player.mozRequestFullScreen) { /* Firefox */
@@ -97,7 +97,7 @@ const mutations =  {
       }
     },
     closeFullScreen(state) {
-      console.log('close full screen');
+      //console.log('close full screen');
       if (state.player.exitFullscreen) {
         state.player.exitFullscreen();
       } else if (state.player.mozCancelFullScreen) { /* Firefox */
@@ -110,10 +110,10 @@ const mutations =  {
     },
     setVolume(state, n){
       if(n < 0 || n > 1){
-        console.log('Invalid volume');
+        //console.log('Invalid volume');
       }
       else{
-        console.log('Set volumer ' + n);
+        //console.log('Set volumer ' + n);
         state.player.volume = n;
       }
     },
@@ -126,7 +126,7 @@ const mutations =  {
         state.movieList = DATA.filter((data)=>{
            return String(mode) === data.mode})
         state.videoNums = state.movieList.length;
-        console.log(state.movieList);
+        //console.log(state.movieList);
       }
     }
 

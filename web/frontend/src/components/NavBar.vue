@@ -75,7 +75,7 @@ return {
       // setTimeout(() => {
       //      this.searching = false
       //   }, 2000);
-      // console.log(this.s)
+      // //console.log(this.s)
     },
     async login() {
       // this.$store.dispatch('auth/login', "ADMIN")

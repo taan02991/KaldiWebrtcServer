@@ -20,7 +20,6 @@
                 <VideoItem v-for="movie in movieList" :key="movie.id" :item="movie"></VideoItem>
             </div>
         </div>
-        <!-- <button type='button' @click="test()">Test</button> -->
         <v-overlay
             light
             v-show="overlay"
@@ -34,7 +33,6 @@
             </div>
           </div>
         </v-overlay>
-        <button @click='test'>test</button>
     </div>
     
 </template>
