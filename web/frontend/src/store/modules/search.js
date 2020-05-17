@@ -29,8 +29,11 @@ const mutations = {
         state.trabscribeState = "Listening ..."
         state.overlay = true
       } else if(status == "close") {
-        state.overlay = false
-        state.transcribeMessage = '';
+        setTimeout( () => {
+          state.overlay = false
+          state.transcribeMessage = '';
+          state.currentInstruction = '';
+        }, 1000);
       }
       state.trabscribeState = status
     },
@@ -333,7 +336,6 @@ const actions= {
         break
     }
     console.log('currentInstruction: ' + state.currentInstruction);
-    state.currentInstruction = '';
   }
 }
 
