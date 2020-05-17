@@ -13,11 +13,11 @@
             :opacity="opacity"
             color="#036358"
           >
-          <div class="overlay-content">
+          <div class="overlay-content" style="height:0px">
             <v-col>
               <v-spacer></v-spacer>
               <v-row class="d-flex justify-center">
-                <p class="display-3 font-weight-bold">{{transcribeMessage}}</p>
+                <p class="display-3 font-weight-bold">{{currentInstruction}}</p>
               </v-row>
               <v-row class="d-flex justify-center"
               >
@@ -62,6 +62,9 @@ export default {
   computed:{
     transcribeMessage() {
         return this.$store.state.search.transcribeMessage;
+    },
+    currentInstruction() {
+        return this.$store.state.search.currentInstruction;
     },
     absolute() {
       return false

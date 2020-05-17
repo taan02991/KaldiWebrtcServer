@@ -95,6 +95,8 @@ export default {
         this.dc = this.pc.createDataChannel('chat', parameters);
         this.dc.onclose = () => {
             clearInterval(this.dcInterval);
+            
+            this.$store.dispatch('search/close');
             console.log('Closed data channel');
             this.statusField = "PRESS START";
         };
@@ -153,7 +155,6 @@ export default {
     },
     stop: function() {
         // close data channel
-        this.$store.dispatch('search/close')
         if (this.dc) {
             this.dc.close();
         }
