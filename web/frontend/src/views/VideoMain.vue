@@ -36,6 +36,7 @@
             </div>
           </div>
         </v-overlay>
+        <button @click='test'>test</button>
     </div>
     
 </template>
