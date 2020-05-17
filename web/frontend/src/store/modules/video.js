@@ -123,7 +123,7 @@ const mutations =  {
       }
       else{
         state.movieList = DATA.filter((data)=>{
-           return mode === data.mode})
+           return String(mode) === data.mode})
         state.videoNums = state.movieList.length;
         console.log(state.movieList);
       }
