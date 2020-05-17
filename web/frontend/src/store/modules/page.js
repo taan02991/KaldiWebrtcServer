@@ -6,7 +6,7 @@ const state =  {
   }
   const mutations = {
      changePage( state,page) {
-        state.Currentpage= page;
+        state.Currentpage = page;
         router.push(page);
      },
      changeMode(state, mode){

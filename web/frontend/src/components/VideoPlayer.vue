@@ -1,7 +1,7 @@
 <template>
     <div class="player-container">
-        <video id='player' width="100%" height="100%" v-bind:poster="currentMovie.cover3" controls onloadstart="this.volume=0.25">
-            <source v-bind:src="currentSource.src" type="video/mp4">
+        <video id='player' width="100%" height="100%" v-bind:poster="currentMovie.cover3" controls onloadstart="this.volume=0.25" :src="typeof currentSource === 'string'?currentSource:currentSource.src">
+            <!-- <source :src="currentSource.src" type="video/mp4"> -->
             Your browser does not support the video tag.
         </video>
     </div>
@@ -12,7 +12,7 @@
 export default {
   name: 'VideoPlayer',
   mounted: function() {
-      this.$store.dispatch('video/setPlayer', document.getElementById("player"))
+      this.$store.dispatch('video/setPlayer', document.getElementById("player"));
   },
   methods: {
   },
