@@ -34,7 +34,7 @@
             color="red"
             dark
             fab
-            @click="start()"
+            @click="wakeWordMode=='OFF'?start():swapToTranscribe()"
           >
             <v-icon>mdi-microphone</v-icon>
           </v-btn>
@@ -250,13 +250,11 @@ export default {
             console.log(msg);
             this.$store.dispatch('transcribe/changeMessage', msg);
 
-            if(this.wakeWordTranscribe.includes('โกวาจี โกวาจี') && this.wakeWordMode !== 'PROCESSING'){
-                this.$store.dispatch('transcribe/setWakeWordMode', 'PROCESSING');
-                this.$store.dispatch('transcribe/resetCount');
-                this.stopWakeWord();
+            if(this.wakeWordTranscribe.includes('โกวาจี โกวาจี') && this.wakeWordMode == 'ON'){
+                this.swapToTranscribe();
                 console.log('Detected Wake Word')
             }
-            else if(this.countTranscribe > 50) {
+            else if(this.countTranscribe > 50 && this.wakeWordMode == 'ON') {
                 this.$store.dispatch('transcribe/resetCount');
                 this.stopWakeWord();
                 console.log('Reset Count')
@@ -324,6 +322,11 @@ export default {
             if(this.wakeWordMode == 'PROCESSING') this.start();
         }, 500);
     },
+    swapToTranscribe: function() {
+        this.$store.dispatch('transcribe/setWakeWordMode', 'PROCESSING');
+        this.$store.dispatch('transcribe/resetCount');
+        this.stopWakeWord();
+    }
   }
 
 }
