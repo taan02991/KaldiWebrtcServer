@@ -11,6 +11,7 @@ const state =  {
      },
      changeMode(state, mode){
         state.Mode=mode;
+        state.dialog = false;
     },
     showMode(state){
         state.dialog = true;
