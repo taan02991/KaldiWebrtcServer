@@ -14,7 +14,7 @@
           <div class="column">
             <v-timeline align-top dense class="align-fav">
               <v-timeline-item
-                v-for="n in videoNums" :key="n" color="red" :icon="n" fill-dot right>
+                v-for="n in videoNums" :key="n" color="red" :icon="String(n)" fill-dot right>
                 <v-card 
                   :elevation="20"
                   class="mx-auto card-favourite">
@@ -54,7 +54,7 @@ export default {
     },
     mode(){
         let mode = this.$store.state.page.Mode;
-        console.log(mode);
+        // //console.log(mode);
         if(mode == null) return "SearchPage";
         else return "Mode"+mode;
     }

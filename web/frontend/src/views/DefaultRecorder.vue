@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     negotiate: function() {
-        console.log('negotiate');
+        //console.log('negotiate');
         return this.pc.createOffer().then(offer => {
         return this.pc.setLocalDescription(offer);
         }).then(() => {
@@ -65,7 +65,7 @@ export default {
             });
         }).then(() => {
             var offer = this.pc.localDescription;
-            console.log(offer.sdp);
+            //console.log(offer.sdp);
             return fetch( process.env.VUE_APP_API + '/offer', {
                 body: JSON.stringify({
                     sdp: offer.sdp,
@@ -79,10 +79,10 @@ export default {
         }).then(response => {
             return response.json();
         }).then(answer => {
-            console.log(answer.sdp);
+            //console.log(answer.sdp);
             return this.pc.setRemoteDescription(answer);
         }).catch(e => {
-            console.log(e);
+            //console.log(e);
             this.statusField = "PRESS START";
         });
     },
@@ -100,18 +100,18 @@ export default {
         this.dc = this.pc.createDataChannel('chat', parameters);
         this.dc.onclose = () => {
             clearInterval(this.dcInterval);
-            console.log('Closed data channel');
+            //console.log('Closed data channel');
             this.statusField = "PRESS START";
         };
         this.dc.onopen = () => {
-            console.log('Opened data channel');
+            //console.log('Opened data channel');
         };
         this.dc.onmessage = evt => {
             this.statusField = 'Listening...';
             this.$store.dispatch('search/listen')
             var msg = evt.data;
             this.$store.dispatch('transcribe/count')
-            console.log(msg);
+            //console.log(msg);
             //detect message in command shutdown immediately 
 
             // resetCount stop show overlay
@@ -134,7 +134,7 @@ export default {
 
         this.pc.oniceconnectionstatechange = () => {
             if (this.pc.iceConnectionState == 'disconnected') {
-                console.log('Disconnected');
+                //console.log('Disconnected');
                 this.statusField = "PRESS START";
             }
         }
@@ -150,7 +150,7 @@ export default {
             });
             return this.negotiate();
         }, err => {
-            console.log('Could not acquire media: ' + err);
+            //console.log('Could not acquire media: ' + err);
             this.statusField = "PRESS START";
         });
     },

@@ -20,10 +20,10 @@ const mutations = {
             html5: true,
             autoplay: true,
             volume: 0.5,
-            rate: 1.6,
-            onload: function() { console.log('song loaded!')},
-            onloaderror: function(id, error) { console.log('loadError: ' + id +' - ' + error)},
-            onplay: () => { console.log('song playing (hopefully)')}
+            rate: 1.6
+            // onload: function() { //console.log('song loaded!')},
+            // onloaderror: function(id, error) { //console.log('loadError: ' + id +' - ' + error)},
+            // onplay: () => { //console.log('song playing (hopefully)')}
         });
       } else if(status == "listen"){
         state.trabscribeState = "Listening ..."
@@ -271,7 +271,7 @@ const actions= {
       // case 'ปิด โปรแกรม' :
       //   window.close()
       //   break
-      case 'เลือก วิดีโอ หมายเลข หนึ่ง' :
+      case 'เลือก วีดีโอ หมายเลข หนึ่ง' :
         dispatch('page/changePage', "/",{root:true});
         dispatch('video/changeMovie',"1",{root:true});
         window.scrollTo(0, 0);
@@ -321,6 +321,7 @@ const actions= {
       //   dispatch('page/changePage', "/searchPage",{root:true});
       //   window.scrollTo(0, 0);
       //   break
+      case 'เปิด โหมด ค้นหา' :
       case 'แสดง โหมด ค้นหา' :
         dispatch('page/showMode', null, {root:true});
         break
