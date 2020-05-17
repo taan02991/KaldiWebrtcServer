@@ -19,7 +19,7 @@
                     {{isManyResolution?currentSource.resolution + 'p':'Default'}}
                 </button>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" v-for="source in currentMovie.source" :key="source.resolution" @click='setResolution(source.resolution)'>{{source.resolution + 'p'}}</a>
+                    <a class="dropdown-item" v-for="(source, index) in currentMovie.source" :key="source.resolution" @click='setResolution(index)'>{{source.resolution + 'p'}}</a>
                 </div>
             </div>
             <small class="text-muted">
