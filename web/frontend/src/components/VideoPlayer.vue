@@ -1,6 +1,6 @@
 <template>
     <div class="player-container">
-        <video id='player' width="100%" height="100%" v-bind:poster="currentMovie.cover3" controls>
+        <video id='player' width="100%" height="100%" v-bind:poster="currentMovie.cover3" controls onloadstart="this.volume=0.25">
             <source v-bind:src="currentSource.src" type="video/mp4">
             Your browser does not support the video tag.
         </video>

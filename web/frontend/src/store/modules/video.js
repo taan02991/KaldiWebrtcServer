@@ -19,7 +19,7 @@ const mutations =  {
       state.player = player;
     },
     changeMovie(state, id){
-      let matchMovie = state.movieList.filter((movie) => movie.id === id)[0];
+      let matchMovie = state.movieList.filter((movie) => movie.id === String(id))[0];
       if(matchMovie){
         //console.log('Change movie');
         state.currentMovie = matchMovie;
