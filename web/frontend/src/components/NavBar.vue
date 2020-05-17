@@ -19,16 +19,9 @@
       <li class="nav-item" @click ='setMode'>
         <router-link class="nav-link" to="/searchPage" >SearchPage</router-link>
       </li>
-      <li class="nav-item" data-toggle="modal" data-target="#exampleModalLong">
-        <a class="nav-link" href="#">Mode</a>
-      </li>
+      <ModePage></ModePage>
     </ul>
-    <!-- <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">  
-    </form>
-    <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="button" @click ="searchPage">Search</button> -->
-    <!-- <button class="btn btn-outline-success my-2 my-sm-0 ml-2 spacing" @click="process"> {{ (isLogin) ? "Logout": "Login"  }}</button> -->
-    <!-- <strong v-html="name" class="spacing"></strong> -->
+    
     <v-chip
       class="ma-2 fix-size"
       color="indigo"
@@ -48,9 +41,12 @@
 </template>
 
 <script>
+import ModePage from './ModeDisplay.vue'
+
 export default {
   name: 'NavBar',
   components: {
+    ModePage,
   },
   computed : {
     isLogin() {
@@ -67,7 +63,6 @@ return {
 },
   methods : {
     searchPage(){
-      // this.$router.push('/searchPage');
       this.$store.dispatch('page/changeMode', null,{root:true});
       this.$store.dispatch('page/changePage',"/searchPage");
     },

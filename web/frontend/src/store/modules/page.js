@@ -1,7 +1,8 @@
 import {router} from '../../main.js'
 const state =  {
     Currentpage: null,
-    Mode: null
+    Mode: null,
+    dialog: false,
   }
   const mutations = {
      changePage( state,page) {
@@ -10,6 +11,12 @@ const state =  {
      },
      changeMode(state, mode){
         state.Mode=mode;
+    },
+    showMode(state){
+        state.dialog = true;
+    },
+    updateDialog(state, value){
+        state.dialog = value;
     }
   }
   const actions= {
@@ -19,6 +26,12 @@ const state =  {
     changeMode({commit,dispatch},mode){
       commit('changeMode', mode);
       dispatch('video/changeMode',mode,{root:true});
+    },
+    showMode({commit}){
+      commit('showMode');
+    },
+    updateDialog({commit}, value){
+      commit('updateDialog', value);
     }
   }
   

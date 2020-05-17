@@ -1,7 +1,7 @@
 <template>
   <!-- <v-parallax> -->
   <!-- <div :style="{'background-image':'url(https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg)'}"> -->
-  <div class = "bg">
+  <div class="bg" style="'background-image': 'url(' + ../assets/bg3.jpg + ')' }">
     <div class="row">
         <div class="container">
             <div class="text">
