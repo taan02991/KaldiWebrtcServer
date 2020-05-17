@@ -29,8 +29,11 @@ const mutations = {
         state.trabscribeState = "Listening ..."
         state.overlay = true
       } else if(status == "close") {
-        state.overlay = false
-        state.transcribeMessage = '';
+        setTimeout( () => {
+          state.overlay = false
+          state.transcribeMessage = '';
+          state.currentInstruction = '';
+        }, 1000);
       }
       state.trabscribeState = status
     },
@@ -221,13 +224,13 @@ const actions= {
         dispatch('video/setVolume', rootState.video.player.volume - 0.10, {root:true});
         break;
       case 'ปรับ คุณภาพ วีดีโอ ระดับ ต่ำ':
-        dispatch('video/setResolution', 360, {root:true});
+        dispatch('video/setResolution', 0, {root:true});
         break;
       case  'ปรับ คุณภาพ วีดีโอ ระดับ กลาง':
-        dispatch('video/setResolution', 720, {root:true});
+        dispatch('video/setResolution', 1, {root:true});
         break;
       case 'ปรับ คุณภาพ วีดีโอ ระดับ สูง':
-        dispatch('video/setResolution', 1080, {root:true});
+        dispatch('video/setResolution', 2, {root:true});
         break;
   
 
@@ -333,7 +336,6 @@ const actions= {
         break
     }
     console.log('currentInstruction: ' + state.currentInstruction);
-    state.currentInstruction = '';
   }
 }
 

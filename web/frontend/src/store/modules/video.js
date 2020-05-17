@@ -43,6 +43,9 @@ const mutations =  {
     },
     setResolution(state, n){
       let targetSource = state.currentMovie.source.filter(source => source.resolution === n)[0];
+      if(state.currentMovie.source.length >= n){
+        targetSource = state.currentMovie.source[n];
+      }
       if(targetSource){
         state.currentSource = targetSource;
         let time = state.player.currentTime;

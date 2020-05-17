@@ -1,6 +1,6 @@
 <template>
     <div class='container'>
-        <v-btn
+        <!-- <v-btn
         id="start"
         absolute
         dark
@@ -14,7 +14,41 @@
         @click="start()"
         >
             <v-icon>mdi-microphone</v-icon>
+        </v-btn> -->
+
+        <v-speed-dial
+        id="start"
+        absolute
+        dark
+        fab
+        bottom
+        right
+        fixed
+        direction="top"
+        style='margin-bottom: 1rem;'
+        :open-on-hover="true"
+        transition='slide-y-reverse-transition'
+      >
+        <template v-slot:activator>
+          <v-btn
+            color="red"
+            dark
+            fab
+            @click="start()"
+          >
+            <v-icon>mdi-microphone</v-icon>
+          </v-btn>
+        </template>
+        <v-btn
+          fab
+          dark
+          small
+          :color="wakeWordMode=='OFF'?'black':'green'"
+          @click="wakeWordMode=='OFF'?startWakeWord():stopWakeWord(true)"
+        >
+          <v-icon>mdi-account-voice</v-icon>
         </v-btn>
+      </v-speed-dial>
     </div>
 </template>
 
@@ -36,7 +70,13 @@ export default {
   computed : {
       countTranscribe() {
           return this.$store.state.transcribe.countTranscribe;
-      }
+      },
+      wakeWordTranscribe() {
+          return this.$store.state.transcribe.wakeWordTranscribe;
+      },
+      wakeWordMode() {
+          return this.$store.state.transcribe.wakeWordMode;
+      },
   },
   methods: {
     negotiate: function() {
@@ -176,6 +216,112 @@ export default {
         // close peer connection
         setTimeout(() => {
             this.pc.close();
+            if(this.wakeWordMode !== 'OFF'){
+                this.startWakeWord();
+            }
+        }, 500);
+    },
+    startWakeWord: function() {
+        this.statusField = 'Connecting...';
+        this.$store.dispatch('transcribe/setWakeWordMode', "ON");
+
+        var config = {
+            sdpSemantics: 'unified-plan'
+        };
+
+        this.pc = new RTCPeerConnection(config);
+        var parameters = {};
+
+        this.dc = this.pc.createDataChannel('chat', parameters);
+        this.dc.onclose = () => {
+            clearInterval(this.dcInterval);
+            console.log('Closed data channel');
+            this.statusField = "PRESS START";
+        };
+        
+        this.dc.onopen = () => {
+            console.log('Opened data channel');
+        };
+        this.dc.onmessage = evt => {
+
+            this.statusField = 'Listening...';
+            var msg = evt.data;
+            this.$store.dispatch('transcribe/count')
+            console.log(msg);
+            this.$store.dispatch('transcribe/changeMessage', msg);
+
+            if(this.wakeWordTranscribe.includes('โกวาจี โกวาจี') && this.wakeWordMode !== 'PROCESSING'){
+                this.$store.dispatch('transcribe/setWakeWordMode', 'PROCESSING');
+                this.$store.dispatch('transcribe/resetCount');
+                this.stopWakeWord();
+                console.log('Detected Wake Word')
+            }
+            else if(this.countTranscribe > 50) {
+                this.$store.dispatch('transcribe/resetCount');
+                this.stopWakeWord();
+                console.log('Reset Count')
+            }
+            if (msg.endsWith('\n')) {
+                this.lastTrans = this.imcompleteTrans + msg.substring(0, msg.length - 1);
+                this.transcriptionOutput.push(this.lastTrans);
+                this.imcompleteTrans = '';
+
+            } else if (msg.endsWith('\r')) {
+                this.lastTrans = this.imcompleteTrans + msg.substring(0, msg.length - 1) + '...';
+                this.imcompleteTrans = '';
+            } else {
+                this.imcompleteTrans += msg;
+            }
+        };
+
+        this.pc.oniceconnectionstatechange = () => {
+            if (this.pc.iceConnectionState == 'disconnected') {
+                console.log('Disconnected');
+                this.statusField = "PRESS START";
+            }
+        }
+
+        var constraints = {
+            audio: true,
+            video: false
+        };
+
+        navigator.mediaDevices.getUserMedia(constraints).then(stream => {
+            stream.getTracks().forEach(track => {
+                this.pc.addTrack(track, stream);
+            });
+            return this.negotiate();
+        }, err => {
+            console.log('Could not acquire media: ' + err);
+            this.statusField = "PRESS START";
+        });
+    },
+    stopWakeWord: function(bl) {
+        // close data channel
+        if (this.dc) {
+            this.dc.close();
+        }
+
+        // close transceivers
+        if (this.pc.getTransceivers) {
+            this.pc.getTransceivers().forEach((transceiver) => {
+                if (transceiver.stop) {
+                    transceiver.stop();
+                }
+            });
+        }
+
+        // close local audio / video
+        this.pc.getSenders().forEach((sender) => {
+            sender.track.stop();
+        });
+
+        // close peer connection
+        setTimeout(() => {
+            this.pc.close();
+            if(bl) return this.$store.dispatch('transcribe/setWakeWordMode', "OFF");
+            if(this.wakeWordMode == 'ON') this.startWakeWord();
+            if(this.wakeWordMode == 'PROCESSING') this.start();
         }, 500);
     },
   }

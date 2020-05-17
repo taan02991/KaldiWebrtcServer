@@ -58,7 +58,7 @@ export default {
   },
   methods: {
     test: function(){
-      this.$store.dispatch('video/openFullScreen');
+      this.$store.dispatch('transcribe/setWakeWordMode', true);
     }
   },
   computed: {
