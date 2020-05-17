@@ -1,104 +1,83 @@
 <template>
-  <v-card
-    max-width="400"
-    class="mx-auto"
-  >
-    <v-system-bar
-      color="pink darken-2"
-      dark
-    >
-      <v-spacer></v-spacer>
+  <div class="text-center">
+    <v-dialog v-model="dialog" width="500">
+      <template v-slot:activator="{ on }">
+        <a class="nav-link" href="#" v-on = "on">Mode</a>
+        <!-- <v-btn v-on="on">Mode</v-btn> -->
+      </template>
+      <v-card max-width="500" class="mx-auto">
+        <v-system-bar color="#1A5276  " dark></v-system-bar>
 
-      <v-icon>mdi-window-minimize</v-icon>
+        <v-app-bar dark color='#154360'>
+          <v-toolbar-title class="text-center">Mode Selector</v-toolbar-title>
+          <v-spacer></v-spacer>
+        </v-app-bar>
+        <v-container>
+          <v-row dense>
+            <v-col v-for="(item, i) in items" :key="i" cols="12">
+              <v-card color= "#D6EAF8 " @click="setMode(i)">
+                <div class="d-flex flex-no-wrap justify-space-between">
+                  <div>
+                    <v-card-title class="headline" v-text="item.title"></v-card-title>
 
-      <v-icon>mdi-window-maximize</v-icon>
+                    <v-card-subtitle v-text="item.artist"></v-card-subtitle>
+                    <v-card-actions>
+                        <v-btn text>Watch Now</v-btn>
+                    </v-card-actions>
+                  </div>
 
-      <v-icon>mdi-close</v-icon>
-    </v-system-bar>
-
-    <v-app-bar
-      dark
-      color="pink"
-    >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-      <v-toolbar-title>My Music</v-toolbar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-container>
-      <v-row dense>
-        <v-col cols="12">
-          <v-card
-            color="#385F73"
-            dark
-          >
-            <v-card-title class="headline">Unlimited music now</v-card-title>
-
-            <v-card-subtitle>Listen to your favorite artists and albums whenever and wherever, online and offline.</v-card-subtitle>
-
-            <v-card-actions>
-              <v-btn text>Listen Now</v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-col>
-
-        <v-col
-          v-for="(item, i) in items"
-          :key="i"
-          cols="12"
-        >
-          <v-card
-            :color="item.color"
-            dark
-          >
-            <div class="d-flex flex-no-wrap justify-space-between">
-              <div>
-                <v-card-title
-                  class="headline"
-                  v-text="item.title"
-                ></v-card-title>
-
-                <v-card-subtitle v-text="item.artist"></v-card-subtitle>
-              </div>
-
-              <v-avatar
-                class="ma-3"
-                size="125"
-                tile
-              >
-                <v-img :src="item.src"></v-img>
-              </v-avatar>
-            </div>
-          </v-card>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-card>
+                   <v-avatar class="ma-3" size="125" tile>
+                    <v-img :src="item.src"></v-img>
+                  </v-avatar>
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card>
+    </v-dialog>
+  </div>
 </template>
 <script>
-  export default {
-    name : 'ModePage',
-    data: () => ({
+export default {
+  name: "ModePage",
+  methods:{
+    setMode(mode) {
+      this.$store.dispatch('page/changeMode', mode+1,{root:true});
+      this.$store.dispatch('page/changePage', "/searchPage",{root:true});
+    }
+  } ,
+  data() {
+    return{
+      dialog: false,
       items: [
         {
-          color: '#1F7087',
-          src: 'https://cdn.vuetifyjs.com/images/cards/foster.jpg',
-          title: 'Supermodel',
-          artist: 'Foster the People',
+          color: '#154360',
+          src: require('../assets/relax.jpg'),
+          title: 'MODE 1: RELAX',
+          artist: '“It is nice finding that place where you can just go and relax.” –Moises Arias',
         },
         {
-          color: '#952175',
-          src: 'https://cdn.vuetifyjs.com/images/cards/halcyon.png',
-          title: 'Halcyon Days',
-          artist: 'Ellie Goulding',
+          color: '#1F618D ',
+          src: require('../assets/knowledge.jpg'),
+          title: 'MODE 2: KNOWLEDGE',
+          artist: '“To attain knowledge, add things everyday. To attain wisdom, remove things every day.” ― Lao Tse',
+        },
+        {
+          color: '#7D3C98',
+          src: require('../assets/lifestyle.jpg'),
+          title: 'MODE 3: LIFE STYLE',
+          artist: '“You only live once, but if you do it right, once is enough.” — Mae West',
+        },
+        {
+          color: '#5B2C6F',
+          src: require('../assets/gamecasting.jpg'),
+          title: 'MODE 4: GAME CASTING',
+          artist: '“Endure and survive.” – The Last of Us',
         },
       ],
-    }),
-  }
+    }
+    }
+  
+};
 </script>

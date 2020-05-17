@@ -162,6 +162,9 @@ const actions= {
       //   dispatch('page/changePage', "/searchPage",{root:true});
       //   window.scrollTo(0, 0);
       //   break
+      case 'แสดงโหมดค้นหา' :
+        window.scrollTo(0, 0);
+        break
       case 'เข้า หน้า ค้นหา':
         dispatch('page/changeMode', null,{root:true});
         dispatch('page/changePage',"/searchPage",{root:true});
