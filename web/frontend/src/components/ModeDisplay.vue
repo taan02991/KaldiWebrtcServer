@@ -3,7 +3,6 @@
     <v-dialog v-model="dialog" width="500">
       <template v-slot:activator="{ on }">
         <a class="nav-link" href="#" v-on = "on">Mode</a>
-        <!-- <v-btn v-on="on">Mode</v-btn> -->
       </template>
       <v-card max-width="500" class="mx-auto">
         <v-system-bar color="#1A5276  " dark></v-system-bar>
@@ -49,7 +48,6 @@ export default {
   } ,
   data() {
     return{
-      dialog: false,
       items: [
         {
           color: '#154360',
@@ -77,7 +75,17 @@ export default {
         },
       ],
     }
-    }
+  },
+  computed: {
+    dialog: {
+      get () {
+      return this.$store.state.page.dialog
+      },
+      set (value) {
+        this.$store.commit('page/updateDialog', value)
+      }
+    },
+  }
   
 };
 </script>
