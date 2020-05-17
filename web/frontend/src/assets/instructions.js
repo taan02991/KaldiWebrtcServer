@@ -74,5 +74,5 @@ INSTRUCTIONS.forEach((instruction)=> {
     }
 })
 INSTRUCTIONS.sort()
-console.log(INSTRUCTIONS)
+// console.log(INSTRUCTIONS)
 export default INSTRUCTIONS;

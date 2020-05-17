@@ -24,8 +24,6 @@
         <v-overlay
             light
             v-show="overlay"
-            :absolute="absolute"
-            :opacity="opacity"
             color="#036358"
           >
           <div class="overlay-content popupImage d-flex justify-center">
