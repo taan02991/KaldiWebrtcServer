@@ -175,7 +175,21 @@ const actions = {
       context.commit('pause');
     },
     setCurrentTime(context, time){
-      context.commit('setCurrentTime', time);
+      if(time < 0 || time > state.player.duration){
+        context.dispatch('notification/push',{
+          message : `เวลาของวีดีโอไม่ถูกต้อง`,
+          color : 'red'
+        }, {root:true})
+        //console.log('Invalid time');
+      }
+      else{
+        context.dispatch('notification/push',{
+          message : `ตั้งเวลาวีดีโอที่ ${time} วินาที สำเร็จ`,
+          color : 'success'
+        }, {root:true})
+        context.commit('setCurrentTime', time);
+        //console.log("Set current time = ", time);
+      }
     },
     openFullScreen(context) {
       context.commit('openFullScreen');
