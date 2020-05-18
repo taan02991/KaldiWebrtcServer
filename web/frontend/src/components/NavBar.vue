@@ -21,11 +21,10 @@
     
     <v-chip
       class="ma-2 fix-size"
-      color="indigo"
+      color="#31C2F2"
       text-color="white"
-      large
     >
-    <strong v-html="name" class="spacing display-1" right></strong> 
+    <strong v-html="name" class="spacing font-weight-bolder" right ></strong> 
     </v-chip>
     <v-avatar left>
       <img
