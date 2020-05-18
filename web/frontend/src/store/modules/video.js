@@ -42,7 +42,7 @@ const mutations =  {
       //console.log('Speed ' + n + 'x')
     },
     setResolution(state, n){
-      let targetSource = state.currentMovie.source.filter(source => source.resolution === n)[0];
+      let targetSource;
       if(state.currentMovie.source.length >= n){
         targetSource = state.currentMovie.source[n];
       }
