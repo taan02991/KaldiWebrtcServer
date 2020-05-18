@@ -85,9 +85,12 @@ const actions= {
       case 'พอส วีดีโอ':
         dispatch('video/pause', null, {root:true});
         break;
+      case 'เล่น ต่อ จาก วีดีโอ เดิม':
+      case 'เล่น วีดีโอ ที่ แสดง':
       case 'เล่น วีดีโอ':
         dispatch('video/play', null, {root:true});
         break;
+      case 'หยุด วีดีโอ ที่ แสดง':  
       case 'หยุด วีดีโอ':
         dispatch('video/pause', null, {root:true});
         break;

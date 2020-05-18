@@ -19,7 +19,7 @@ const mutations =  {
       state.player = player;
     },
     changeMovie(state, id){
-      let matchMovie = state.movieList.filter((movie) => movie.id === id)[0];
+      let matchMovie = state.movieList.filter((movie) => movie.id === String(id))[0];
       if(matchMovie){
         //console.log('Change movie');
         state.currentMovie = matchMovie;
@@ -37,12 +37,14 @@ const mutations =  {
       }
     },
     setSpeed(state, n){
-      state.currentSpeed = n;
-      state.player.playbackRate = n;
+      if(n > 0){
+        state.currentSpeed = n;
+        state.player.playbackRate = n;
+      }
       //console.log('Speed ' + n + 'x')
     },
     setResolution(state, n){
-      let targetSource = state.currentMovie.source.filter(source => source.resolution === n)[0];
+      let targetSource;
       if(state.currentMovie.source.length >= n){
         targetSource = state.currentMovie.source[n];
       }
@@ -81,6 +83,7 @@ const mutations =  {
       }
       else{
         state.player.currentTime = time;
+        state.player.play();
         //console.log("Set current time = ", time);
       }
     },
@@ -114,6 +117,7 @@ const mutations =  {
       }
       else{
         //console.log('Set volumer ' + n);
+        state.player.muted = false;
         state.player.volume = n;
       }
     },
@@ -142,7 +146,19 @@ const actions = {
       context.commit('changeMovie', id);
     },
     setSpeed(context, n) {
-      context.commit('setSpeed', n);
+      if(n > 0){
+        context.dispatch('notification/push',{
+          message : `ตั้งความเร็ววีดีโอ ${n} เท่า สำเร็จ`,
+          color : 'success'
+        }, {root:true})
+        context.commit('setSpeed', n);
+      }
+      else{
+        context.dispatch('notification/push',{
+          message : `ความเร็ววีดีโอไม่ถูกต้อง`,
+          color : 'red'
+        }, {root:true})
+      }
     },
     setResolution(context, n) {
       context.commit('setResolution', n);
@@ -160,7 +176,21 @@ const actions = {
       context.commit('pause');
     },
     setCurrentTime(context, time){
-      context.commit('setCurrentTime', time);
+      if(time < 0 || time > state.player.duration){
+        context.dispatch('notification/push',{
+          message : `เวลาของวีดีโอไม่ถูกต้อง`,
+          color : 'red'
+        }, {root:true})
+        //console.log('Invalid time');
+      }
+      else{
+        context.dispatch('notification/push',{
+          message : `ตั้งเวลาวีดีโอที่ ${time} วินาที สำเร็จ`,
+          color : 'success'
+        }, {root:true})
+        context.commit('setCurrentTime', time);
+        //console.log("Set current time = ", time);
+      }
     },
     openFullScreen(context) {
       context.commit('openFullScreen');
@@ -169,6 +199,10 @@ const actions = {
       context.commit('closeFullScreen');
     },
     setVolume(context, n) {
+      context.dispatch('notification/push',{
+        message : `ตั้งค่าเสียง ${n * 100} % สำเร็จ`,
+        color : 'success'
+      }, {root:true})
       context.commit('setVolume', n);
     },
     changeMode(context, mode){

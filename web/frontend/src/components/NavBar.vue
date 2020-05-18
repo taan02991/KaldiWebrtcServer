@@ -1,6 +1,6 @@
 <template>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Numja</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -9,9 +9,6 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active"  @click ='setMode'>
         <router-link class="nav-link" to="/" >Home</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/default-recorder">Default Recorder</router-link>
       </li>
       <li class="nav-item" v-if="isLogin"  @click ='setMode'>
         <router-link class="nav-link" to="/Favourite">Favourite</router-link>
@@ -24,11 +21,10 @@
     
     <v-chip
       class="ma-2 fix-size"
-      color="indigo"
+      color="#31C2F2"
       text-color="white"
-      large
     >
-    <strong v-html="name" class="spacing display-1" right></strong> 
+    <strong v-html="name" class="spacing font-weight-bolder" right ></strong> 
     </v-chip>
     <v-avatar left>
       <img

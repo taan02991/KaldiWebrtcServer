@@ -81,7 +81,7 @@ const five_cen_src =  [
     id: '5',
     mode: '4',
     // Documentary
-    title: 'Evil Genius | Official Trailer [HD] | Netflix',
+    title: 'Evil Genius',
     author: 'Netflix',
     date: 'Apr 30,2018',
     desc: "2:28 PM. August 28, 2003. A man walks into a bank with a bomb locked around his neck. This is a true story.",
@@ -95,7 +95,7 @@ const five_cen_src =  [
     id: '6',
     // Adventure
     mode: '2',
-    title: 'Percy Jackson: Sea of Monsters Trailer 2013 Movie - Official [HD]',
+    title: 'Percy Jackson: Sea of Monsters',
     author: 'Cieon Movies',
     date: 'Apr 9, 2013',
     desc: "Percy Jackson: Sea of Monsters Trailer 2013 - Official movie trailer in HD - stars Logan Lerman, Sean Bean, Nathan Fillion, Alexandra Daddario, Leven Rambin - directed by Thor Freudenthal - in order to restore their dying safe haven, the son of Poseidon and his friends embark on a quest to the Sea of Monsters to find the mythical Golden Fleece and to stop an ancient evil from rising",
@@ -109,7 +109,7 @@ const five_cen_src =  [
     id: '7',
     // Commedies
     mode: '3',
-    title: 'YOUNG SHELDON Trailer Promos Season 1 (2017) Big Bang Theory Spinoff Series',
+    title: 'YOUNG SHELDON',
     author: 'Series Trailer MP',
     date: 'Sep 7,2017',
     desc: "Young Sheldon Season 1 PromoTeaser Trailers - 2017 cbs Big Bang Theory spinoff series about young Sheldon Cooper",
@@ -123,7 +123,7 @@ const five_cen_src =  [
     id: '8',
     // Commedies
     mode: '3',
-    title: 'GAME NIGHT - Official Trailer',
+    title: 'GAME NIGHT',
     author: 'Warner Bros. Pictures',
     date: 'Feb 2,2018',
     desc: 'Bateman and McAdams star as Max and Annie, whose weekly couples game night gets kicked up a notch when Max’s charismatic brother, Brooks (Chandler), arranges a murder mystery party, complete with fake thugs and faux federal agents. So when Brooks gets kidnapped, it’s all part of the game…right?  But as the six uber-competitive gamers set out to solve the case and win, they begin to discover that neither this “game”—nor Brooks—are what they seem to be.  Over the course of one chaotic night, the friends find themselves increasingly in over their heads as each twist leads to another unexpected turn.  With no rules, no points, and no idea who all the players are, this could turn out to be the most fun they’ve ever had…or game over.',
@@ -137,7 +137,7 @@ const five_cen_src =  [
     id: '9',
     // Commedies
     mode: '3',
-    title: 'Why Him? | Trailer 2 | 20th Century FOX',
+    title: 'Why Him?',
     author: '20th Century Studios',
     date: 'Nov 15,2016',
     desc: "Over the holidays, Ned (Bryan Cranston), an overprotective but loving dad and his family visit his daughter at Stanford, where he meets his biggest nightmare: her well-meaning but socially awkward Silicon Valley billionaire boyfriend, Laird (James Franco).  A rivalry develops, and Ned's panic level goes through the roof when he finds himself lost in this glamorous high-tech world and learns that Laird is about to pop the question. ",
