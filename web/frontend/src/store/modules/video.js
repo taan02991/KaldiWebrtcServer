@@ -83,6 +83,7 @@ const mutations =  {
       }
       else{
         state.player.currentTime = time;
+        state.player.play();
         //console.log("Set current time = ", time);
       }
     },
