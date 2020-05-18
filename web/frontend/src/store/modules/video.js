@@ -114,6 +114,7 @@ const mutations =  {
       }
       else{
         //console.log('Set volumer ' + n);
+        state.player.muted = false;
         state.player.volume = n;
       }
     },
@@ -169,6 +170,10 @@ const actions = {
       context.commit('closeFullScreen');
     },
     setVolume(context, n) {
+      context.dispatch('notification/push',{
+        message : `ตั้งค่าเสียง ${n * 100} % สำเร็จ`,
+        color : 'success'
+     }, {root:true})
       context.commit('setVolume', n);
     },
     changeMode(context, mode){
