@@ -37,8 +37,10 @@ const mutations =  {
       }
     },
     setSpeed(state, n){
-      state.currentSpeed = n;
-      state.player.playbackRate = n;
+      if(n > 0){
+        state.currentSpeed = n;
+        state.player.playbackRate = n;
+      }
       //console.log('Speed ' + n + 'x')
     },
     setResolution(state, n){
@@ -143,7 +145,19 @@ const actions = {
       context.commit('changeMovie', id);
     },
     setSpeed(context, n) {
-      context.commit('setSpeed', n);
+      if(n > 0){
+        context.dispatch('notification/push',{
+          message : `ตั้งความเร็ววีดีโอ ${n} เท่า สำเร็จ`,
+          color : 'success'
+        }, {root:true})
+        context.commit('setSpeed', n);
+      }
+      else{
+        context.dispatch('notification/push',{
+          message : `ความเร็ววีดีโอไม่ถูกต้อง`,
+          color : 'red'
+        }, {root:true})
+      }
     },
     setResolution(context, n) {
       context.commit('setResolution', n);
@@ -173,7 +187,7 @@ const actions = {
       context.dispatch('notification/push',{
         message : `ตั้งค่าเสียง ${n * 100} % สำเร็จ`,
         color : 'success'
-     }, {root:true})
+      }, {root:true})
       context.commit('setVolume', n);
     },
     changeMode(context, mode){
