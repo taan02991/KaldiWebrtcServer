@@ -31,6 +31,9 @@ const mutations =  {
           state.currentSource = state.currentMovie.source;
           state.player.src = state.currentSource;
         }
+        setTimeout( () => {
+          state.player.play();
+        }, 1 );
       }
       else{
         //console.log('Invalid movie id');
