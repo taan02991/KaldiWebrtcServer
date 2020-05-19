@@ -12,6 +12,7 @@
             :absolute="absolute"
             :opacity="opacity"
             color="#036358"
+            style="z-index: 203"
           >
           <div class="overlay-content" style="height:0px">
             <v-col>
