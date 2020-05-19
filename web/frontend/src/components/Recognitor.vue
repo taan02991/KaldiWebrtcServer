@@ -254,7 +254,7 @@ export default {
                 this.swapToTranscribe();
                 console.log('Detected Wake Word')
             }
-            else if(this.countTranscribe > 50 && this.wakeWordMode == 'ON') {
+            else if(this.countTranscribe > 25 && this.wakeWordMode == 'ON') {
                 this.$store.dispatch('transcribe/resetCount');
                 this.stopWakeWord();
                 //console.log('Reset Count')
