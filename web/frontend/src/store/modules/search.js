@@ -276,22 +276,22 @@ const actions= {
       //   break
       case 'เลือก วีดีโอ หมายเลข หนึ่ง' :
         dispatch('page/changePage', "/",{root:true});
-        dispatch('video/changeMovie',"1",{root:true});
+        dispatch('video/changeMovie',rootState.video.movieList[0].id,{root:true});
         window.scrollTo(0, 0);
         break
       case 'เลือก วีดีโอ หมายเลข สอง' :
         dispatch('page/changePage', "/",{root:true});
-        dispatch('video/changeMovie',"2",{root:true});
+        dispatch('video/changeMovie',rootState.video.movieList[1].id,{root:true});
         window.scrollTo(0, 0);
         break
       case 'เลือก วีดีโอ หมายเลข สาม' :
         dispatch('page/changePage', "/",{root:true});
-        dispatch('video/changeMovie',"3",{root:true});
+        dispatch('video/changeMovie',rootState.video.movieList[2].id,{root:true});
         window.scrollTo(0, 0);
         break
       case 'เลือก วีดีโอ หมายเลข สี่' :
         dispatch('page/changePage', "/",{root:true});  
-        dispatch('video/changeMovie',"4",{root:true});
+        dispatch('video/changeMovie',rootState.video.movieList[3].id,{root:true});
         window.scrollTo(0, 0);
         break
       case 'เลือก วีดีโอ หมายเลข ห้า' :
