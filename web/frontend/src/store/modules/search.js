@@ -334,7 +334,7 @@ const actions= {
         window.scrollTo(0, 0);
         break
       case 'เข้า หน้า โฮมเพจ':
-        dispatch('page/changeMode', null,{root:true});
+        // dispatch('page/changeMode', null,{root:true});
         dispatch('page/changePage',"/",{root:true});
         window.scrollTo(0, 0);
         break

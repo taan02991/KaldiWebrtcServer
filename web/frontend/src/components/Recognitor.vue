@@ -250,7 +250,7 @@ export default {
             console.log(msg);
             this.$store.dispatch('transcribe/changeMessage', msg);
 
-            if(this.wakeWordTranscribe.includes('โกวาจี โกวาจี') && this.wakeWordMode == 'ON'){
+            if(this.wakeWordTranscribe.includes('โกวาจี') && this.wakeWordMode == 'ON'){
                 this.swapToTranscribe();
                 console.log('Detected Wake Word')
             }

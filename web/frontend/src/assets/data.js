@@ -23,9 +23,8 @@ const five_cen_src =  [
     resolution: 720
   }
 ]
-  
-  
-  const DATA = [{
+
+const DATA = [{
     id: '1',
     mode: '1',
     title: '5 Centimeters per Second',
