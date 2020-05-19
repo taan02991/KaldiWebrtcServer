@@ -33,7 +33,7 @@ const mutations =  {
         }
         setTimeout( () => {
           state.player.play();
-        }, 1 );
+        }, 1000 );
       }
       else{
         //console.log('Invalid movie id');
@@ -56,7 +56,9 @@ const mutations =  {
         let time = state.player.currentTime;
         state.player.src = state.currentSource.src;
         state.player.currentTime = time;
-        state.player.play();
+        setTimeout( () => {
+          state.player.play();
+        }, 1000 );
         //console.log(n + 'p');
       }
       else{
